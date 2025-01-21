@@ -65,5 +65,31 @@ dependencies {
     implementation ("com.tbuonomo:dotsindicator:4.2")
 
     implementation ("com.github.bumptech.glide:glide:4.12.0")
+
+    // Coroutines to make the HTTP requests asynchronous(In the background thread)
+
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
+
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
+
+    // Retrofit
+
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+
+    // Okhttp3 for the POST requests
+
+    implementation ("com.squareup.okhttp3:okhttp:5.0.0-alpha.1")
+
+
+
+    // Gson (To convert raw JSON to pretty JSON)
+
+    implementation ("com.google.code.gson:gson:2.9.1")
+
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+
+    //Glide
+
+    implementation ("com.github.bumptech.glide:glide:4.12.0") 
 }
 

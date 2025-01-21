@@ -30,32 +30,51 @@ class OnboardingFragment : Fragment() {
         adapter.submitList(OnboardingInfoList.onboardingInfoList)
         binding.ViewPager2OnboardingFragment.adapter = adapter
 
-
-        binding.btnNextOnboardingFragment.setOnClickListener {
-            val currentItem = binding.ViewPager2OnboardingFragment.currentItem
-            if (currentItem < OnboardingInfoList.onboardingInfoList.size - 1) {
-                binding.ViewPager2OnboardingFragment.setCurrentItem(currentItem + 1, true)
+        val viewPagerCallback = object : ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                if (position == OnboardingInfoList.onboardingInfoList.size - 1) {
+                    binding.btnSkipOnboardingFragment.visibility = View.INVISIBLE
+                    binding.btnNextOnboardingFragment.visibility = View.VISIBLE
+                } else {
+                    binding.btnSkipOnboardingFragment.visibility = View.VISIBLE
+                    binding.btnNextOnboardingFragment.visibility = View.INVISIBLE
+                }
             }
         }
-
         binding.dotsIndicator.setViewPager2(binding.ViewPager2OnboardingFragment)
         binding.ViewPager2OnboardingFragment.registerOnPageChangeCallback(viewPagerCallback)
 
         binding.btnSkipOnboardingFragment.setOnClickListener {
-            findNavController().navigate(R.id.action_onboardingFragment_to_loginFragment)
+            val lastPageIndex = OnboardingInfoList.onboardingInfoList.size - 1
+            binding.ViewPager2OnboardingFragment.setCurrentItem(lastPageIndex, true)
         }
-    }
+        binding.ViewPager2OnboardingFragment.registerOnPageChangeCallback(object :
+            ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                if (position == OnboardingInfoList.onboardingInfoList.size - 1) {
+                    binding.btnSkipOnboardingFragment.visibility = View.GONE
+                } else {
+                    binding.btnSkipOnboardingFragment.visibility = View.VISIBLE
+                }
+            }
+        })
 
-    val viewPagerCallback = object : ViewPager2.OnPageChangeCallback() {
-        override fun onPageSelected(position: Int) {
-            super.onPageSelected(position)
-            if (position == OnboardingInfoList.onboardingInfoList.size - 1) {
-                binding.btnSkipOnboardingFragment.visibility = View.VISIBLE
-                binding.btnNextOnboardingFragment.visibility = View.INVISIBLE
+
+        binding.ViewPager2OnboardingFragment.registerOnPageChangeCallback(viewPagerCallback)
+
+        binding.btnNextOnboardingFragment.setOnClickListener {
+            val currentItem = binding.ViewPager2OnboardingFragment.currentItem
+            val lastPageIndex = OnboardingInfoList.onboardingInfoList.size - 1
+
+            if (currentItem < lastPageIndex) {
+                binding.ViewPager2OnboardingFragment.setCurrentItem(currentItem + 1, true)
             } else {
-                binding.btnSkipOnboardingFragment.visibility = View.INVISIBLE
-                binding.btnNextOnboardingFragment.visibility = View.VISIBLE
+                findNavController().navigate(R.id.action_onboardingFragment_to_loginFragment)
             }
         }
+
     }
 }
+

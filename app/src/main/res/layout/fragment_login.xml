@@ -13,6 +13,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="60dp"
         android:src="@drawable/ic_back"
+        android:background="@color/ful_transparent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -83,6 +84,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
+            android:visibility="gone"
             android:fontFamily="@font/sf_regular"
             android:text="Қате формат"
             android:textColor="@color/red"
