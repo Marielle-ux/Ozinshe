@@ -74,7 +74,6 @@ class OnboardingFragment : Fragment() {
                 findNavController().navigate(R.id.action_onboardingFragment_to_loginFragment)
             }
         }
-
     }
 }
 
