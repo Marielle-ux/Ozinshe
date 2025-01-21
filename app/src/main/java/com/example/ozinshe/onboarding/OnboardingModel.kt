@@ -1,4 +1,4 @@
-package com.example.ozinshe.data
+package com.example.ozinshe.onboarding
 
 data class OnboardingModel(
     val imageId: Int,

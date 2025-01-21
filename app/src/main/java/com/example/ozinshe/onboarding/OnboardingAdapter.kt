@@ -3,7 +3,6 @@ package com.example.ozinshe.onboarding
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.ozinshe.data.OnboardingModel
 import com.example.ozinshe.databinding.ItemViewpagerOnboardingBinding
 
 class OnboardingAdapter():RecyclerView.Adapter<OnboardingAdapter.OnboardingViewHolder>(){

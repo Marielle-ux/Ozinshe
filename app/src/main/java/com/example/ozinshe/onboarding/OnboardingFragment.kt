@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.example.ozinshe.R
-import com.example.ozinshe.data.OnboardingInfoList
 import com.example.ozinshe.databinding.FragmentOnboardingBinding
 
 class OnboardingFragment : Fragment() {
@@ -74,7 +73,6 @@ class OnboardingFragment : Fragment() {
                 findNavController().navigate(R.id.action_onboardingFragment_to_loginFragment)
             }
         }
-
     }
 }
 
