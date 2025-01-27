@@ -7,8 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
+import com.example.ozinshe.NavigationHostProvider
 import com.example.ozinshe.R
 import com.example.ozinshe.databinding.FragmentOnboardingBinding
+import com.example.ozinshe.provideNavigationHost
 
 class OnboardingFragment : Fragment() {
 
@@ -24,6 +26,10 @@ class OnboardingFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        provideNavigationHost()?.apply{
+            setNavigationVisibility(false)
+        }
 
         val adapter = OnboardingAdapter()
         adapter.submitList(OnboardingInfoList.onboardingInfoList)

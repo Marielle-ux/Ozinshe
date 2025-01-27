@@ -4,8 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.ozinshe.data.ApiService
-import com.example.ozinshe.data.ServiceBuilder
+import com.example.ozinshe.data.model.ApiService
+import com.example.ozinshe.data.model.ServiceBuilder
 import com.example.ozinshe.data.model.LoginRequest
 import com.example.ozinshe.data.model.LoginResponse
 import kotlinx.coroutines.Dispatchers

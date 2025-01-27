@@ -1,7 +1,5 @@
-package com.example.ozinshe.data
+package com.example.ozinshe.data.model
 
-import com.example.ozinshe.data.model.LoginRequest
-import com.example.ozinshe.data.model.LoginResponse
 import com.example.ozinshe.data.signup.SignUpRequest
 import com.example.ozinshe.data.signup.SignUpResponse
 import retrofit2.http.Body
