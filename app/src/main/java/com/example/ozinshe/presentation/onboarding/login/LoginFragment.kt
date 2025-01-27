@@ -12,6 +12,7 @@ import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.ozinshe.R
+import com.example.ozinshe.data.SharedProvider
 import com.example.ozinshe.databinding.FragmentLoginBinding
 
 class LoginFragment : Fragment() {
@@ -33,6 +34,7 @@ class LoginFragment : Fragment() {
         viewModel.loginResponse.observe(viewLifecycleOwner) {
             binding.tvErrorTextPasswordAndServer.visibility = View.GONE
             Toast.makeText(requireContext(), "$it", Toast.LENGTH_SHORT).show()
+            SharedProvider(requireContext()).saveToken(it.accessToken)
             saveAccessToken(viewModel.loginResponse.value!!.accessToken)
             findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
         }
