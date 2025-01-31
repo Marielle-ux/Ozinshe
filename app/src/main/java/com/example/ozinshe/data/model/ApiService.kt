@@ -17,4 +17,7 @@ interface ApiService {
 
    @POST("/auth/V1/signup")
    suspend fun signUpUser(@Body signUpRequest: SignUpRequest): SignUpResponse
+
+   @GET ("/core/V1/movies/main")
+   suspend fun getMainMovieByCategory(@Header("Authorization")token: String): MoviesByCategoryMainModel
 }

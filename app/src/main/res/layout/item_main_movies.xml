@@ -8,7 +8,7 @@
     android:layout_width="0dp"
     android:layout_height="164dp"
     android:scaleType="centerCrop"
-    app:shapeAppearanceOverlay="@drawable/background_button_12dp_circle"
+    app:shapeAppearanceOverlay="@style/style_corner_for_image_12dp"
     app:layout_constraintTop_toTopOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintEnd_toEndOf="parent"/>
