@@ -10,10 +10,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:scaleType="centerCrop"
+        android:src="@drawable/image_onboarding_1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/image_onboarding_1" />
+        tools:contentDescription="1" />
 
     <ImageView
         android:id="@+id/ImgShadowOnboarding"
@@ -66,11 +67,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/sf_regular"
-                android:textStyle="bold"
                 android:gravity="center"
                 android:text="Кез келген құрылғыдан қара\nСүйікті фильміңді қосымша төлемсіз телефоннан, планшеттен, ноутбуктан қара"
                 android:textColor="@color/grey_500"
-                android:textSize="14dp"
+                android:textSize="14sp"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#D7CDCD"
-    tools:context=".onboarding.OnboardingFragment">
+    tools:context=".presentation.onboarding.OnboardingFragment">
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/ViewPager2OnboardingFragment"

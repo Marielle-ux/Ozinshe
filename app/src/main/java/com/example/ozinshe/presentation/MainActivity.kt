@@ -1,4 +1,4 @@
-package com.example.ozinshe.presentation.onboarding
+package com.example.ozinshe.presentation
 
 import android.os.Bundle
 import android.view.View

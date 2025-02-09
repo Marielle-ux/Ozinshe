@@ -1,4 +1,4 @@
-package com.example.ozinshe.presentation.onboarding.login
+package com.example.ozinshe.presentation.login
 
 import android.content.Context
 import android.os.Bundle

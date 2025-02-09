@@ -1,4 +1,4 @@
-package com.example.ozinshe.onboarding
+package com.example.ozinshe.presentation.onboarding
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
-import com.example.ozinshe.NavigationHostProvider
 import com.example.ozinshe.R
 import com.example.ozinshe.databinding.FragmentOnboardingBinding
 import com.example.ozinshe.provideNavigationHost
