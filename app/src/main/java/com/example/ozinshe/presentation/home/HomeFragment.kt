@@ -1,4 +1,4 @@
-package com.example.ozinshe.presentation.onboarding.home
+package com.example.ozinshe.presentation.home
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -48,17 +48,17 @@ class HomeFragment : Fragment() {
         val adaptCategoriesSecond = MoviesByCategoryMainAdapter()
         val adapterCategoriesThird = MoviesByCategoryMainAdapter()
         viewModel.moviesByCategoryMainModel.observe(viewLifecycleOwner) {
-            binding.rcCategories.adapter = adapterCategoriesFirst
-            binding.rc_main_movies.text = it[0].categoryName
+            binding.rcFirstMovieCategory.adapter = adapterCategoriesFirst
+            binding.tvFirstCategoryTitle.text = it[0].categoryName
             adapterCategoriesFirst.submitList(it[0].movies)
 
-            binding.MovieCategory2.adapter = adaptCategoriesSecond
-            binding.tvRecFilms.text = it[1].categoryName
-            adaptCategoriesSecond.submitList(it[1].movies)
-
-            binding.MovieCategory3.adapter = adapterCategoriesThird
-            binding.rcCategories2.text = it[2].categoryName
-            adapterCategoriesThird.submitList(it[2].movies)
+//            binding.MovieCategory2.adapter = adaptCategoriesSecond
+//            binding.tvRecFilms.text = it[1].categoryName
+//            adaptCategoriesSecond.submitList(it[1].movies)
+//
+//            binding.MovieCategory3.adapter = adapterCategoriesThird
+//            binding.rcCategories2.text = it[2].categoryName
+//            adapterCategoriesThird.submitList(it[2].movies)
         }
     }
 }

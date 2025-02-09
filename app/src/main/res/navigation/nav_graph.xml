@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/splashFragment"
-        android:name="com.example.ozinshe.presentation.onboarding.SplashFragment"
+        android:name="com.example.ozinshe.presentation.SplashFragment"
         android:label="fragment_splash"
         tools:layout="@layout/fragment_splash">
         <action
@@ -17,7 +17,7 @@
 
     <fragment
         android:id="@+id/onboardingFragment"
-        android:name="com.example.ozinshe.onboarding.OnboardingFragment"
+        android:name="com.example.ozinshe.presentation.onboarding.OnboardingFragment"
         android:label="fragment_onboarding"
         tools:layout="@layout/fragment_onboarding">
         <action
@@ -27,7 +27,7 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.example.ozinshe.presentation.onboarding.login.LoginFragment"
+        android:name="com.example.ozinshe.presentation.login.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login">
 
@@ -57,22 +57,22 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.ozinshe.presentation.onboarding.home.HomeFragment"
+        android:name="com.example.ozinshe.presentation.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/searchFragment"
-        android:name="com.example.ozinshe.presentation.onboarding.SearchFragment"
+        android:name="com.example.ozinshe.presentation.SearchFragment"
         android:label="fragment_search"
         tools:layout="@layout/fragment_search" />
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.example.ozinshe.presentation.onboarding.ProfileFragment"
+        android:name="com.example.ozinshe.presentation.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/favoriteFragment"
-        android:name="com.example.ozinshe.presentation.onboarding.FavoriteFragment"
+        android:name="com.example.ozinshe.presentation.FavoriteFragment"
         android:label="fragment_favorite"
         tools:layout="@layout/fragment_favorite" />
 </navigation>

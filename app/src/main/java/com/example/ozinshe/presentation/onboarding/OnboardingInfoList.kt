@@ -1,4 +1,4 @@
-package com.example.ozinshe.onboarding
+package com.example.ozinshe.presentation.onboarding
 
 import com.example.ozinshe.R
 

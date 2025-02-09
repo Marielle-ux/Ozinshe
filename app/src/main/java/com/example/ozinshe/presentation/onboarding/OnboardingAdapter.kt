@@ -1,4 +1,4 @@
-package com.example.ozinshe.onboarding
+package com.example.ozinshe.presentation.onboarding
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

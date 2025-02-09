@@ -1,4 +1,4 @@
-package com.example.ozinshe.presentation.onboarding.login
+package com.example.ozinshe.presentation.login
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

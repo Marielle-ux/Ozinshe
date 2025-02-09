@@ -1,4 +1,4 @@
-package com.example.ozinshe.presentation.onboarding.home
+package com.example.ozinshe.presentation.home
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
@@ -46,7 +46,7 @@ class MoviesByCategoryMainAdapter : RecyclerView.Adapter<MoviesByCategoryMainAda
 
 
             binding.tvTitleFilm.text = movieItem.name
-            binding.tvDescriptionFilm.text = movieItem.categoryAges[0].name
+            binding.tvDescriptionFilm.text = movieItem.genres.first().name
             itemView.setOnClickListener {
                 listenerClickAtItem?.onClick(movieItem.id)
             }

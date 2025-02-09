@@ -1,4 +1,4 @@
-package com.example.ozinshe.presentation.onboarding.home
+package com.example.ozinshe.presentation.home
 
 import com.example.ozinshe.data.model.Movy
 

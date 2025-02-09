@@ -49,7 +49,7 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
-    val nav_version = "2.7.7"
+
 
     // Kotlin
 
