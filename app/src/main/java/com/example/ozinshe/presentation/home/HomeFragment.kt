@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.ozinshe.R
@@ -43,11 +44,8 @@ class HomeFragment : Fragment() {
         binding.rcMainMovies.adapter = adapterMainMovie
         adapterMainMovie.setOnMovieClickListener(object : RcViewItemClickMainMoviesCallback{
             override fun onClick(movieId: Int) {
-//                val action = HomeFragmentDirections.actionHomeFragmentToAboutFragment(movieId)
-//                findNavController().navigate(action)
-                findNavController().navigate(
-                    R.id.aboutFragment
-                )
+                val action = HomeFragmentDirections.actionHomeFragmentToAboutFragment(movieId)
+                findNavController().navigate(action)
             }
         })
         viewModel.mainMoviesResponse.observe(viewLifecycleOwner) {

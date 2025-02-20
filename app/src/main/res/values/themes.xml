@@ -1,9 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.Ozinshe" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
-    </style>
+    <!-- Светлая тема  -->
 
-    <style name="Theme.Ozinshe" parent="Base.Theme.Ozinshe" />
+    <style name="Theme.Ozinshe" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="strokeColor">@color/grey_200</item>
+    </style>
 </resources>

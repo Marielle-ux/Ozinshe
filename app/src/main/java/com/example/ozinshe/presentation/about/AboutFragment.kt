@@ -40,15 +40,17 @@ class AboutFragment : Fragment() {
         provideNavigationHost()?.apply {
             setNavigationVisibility(false)
         }
-//        val token = SharedProvider(requireContext()).getToken()
-//        viewModel.getMovieById(token, args.movieId)
+        val token = SharedProvider(requireContext()).getToken()
+        viewModel.getMovieById(token, args.movieId)
 
         viewModel.moviesByIdResponse.observe(viewLifecycleOwner) {
             Glide.with(requireContext()).load(it.poster.link).into(binding.imgPoster)
             binding.textTvTittleMovie.text = it.name
             binding.textTvAdditionalInfoYear.text = it.createdDate
+            Log.d("AAA","DESCRIPTION"+ it.description.toString())
             binding.textTvDescription.text = it.description
-            binding.textTvGenreInfo.text = it.genres.toString()
+            binding.textTvGenreInfo.text = it.genres.joinToString { " "+it.name }
+
         }
         viewModel.errorResponse.observe(viewLifecycleOwner) {
             Log.d("AAA", it)

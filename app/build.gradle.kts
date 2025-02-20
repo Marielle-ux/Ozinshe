@@ -1,7 +1,10 @@
+import org.jetbrains.kotlin.utils.addToStdlib.safeAs
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    id("androidx.navigation.safeargs.kotlin")
+    alias(libs.plugins.safe.arags)
+
 }
 
 android {

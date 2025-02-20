@@ -1,7 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.Ozinshe" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+    <!-- Темная тема  -->
+    <style name="Theme.Ozinshe" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="strokeColor">@color/grey_200</item>
     </style>
 </resources>
