@@ -6,6 +6,7 @@ import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.POST
+import retrofit2.http.Path
 
 interface ApiService {
 
@@ -20,4 +21,10 @@ interface ApiService {
 
    @GET ("/core/V1/movies/main")
    suspend fun getMainMovieByCategory(@Header("Authorization")token: String): MoviesByCategoryMainModel
+
+   @GET("/core/V1/movies/{id}")
+   suspend fun getMovieById(
+      @Header("Authorization") token: String,
+      @Path("id") id: Int
+   ):MovieByIdResponse
 }

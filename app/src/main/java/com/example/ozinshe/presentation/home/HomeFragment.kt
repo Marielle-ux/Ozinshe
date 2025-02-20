@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import com.example.ozinshe.R
 import com.example.ozinshe.data.SharedProvider
 import com.example.ozinshe.databinding.FragmentHomeBinding
 import com.example.ozinshe.provideNavigationHost
@@ -39,6 +41,15 @@ class HomeFragment : Fragment() {
         viewModel.getMainMovies(token)
         val adapterMainMovie = MainMovieAdapter()
         binding.rcMainMovies.adapter = adapterMainMovie
+        adapterMainMovie.setOnMovieClickListener(object : RcViewItemClickMainMoviesCallback{
+            override fun onClick(movieId: Int) {
+//                val action = HomeFragmentDirections.actionHomeFragmentToAboutFragment(movieId)
+//                findNavController().navigate(action)
+                findNavController().navigate(
+                    R.id.aboutFragment
+                )
+            }
+        })
         viewModel.mainMoviesResponse.observe(viewLifecycleOwner) {
             adapterMainMovie.submitList(it)
         }
@@ -54,7 +65,7 @@ class HomeFragment : Fragment() {
             adapterCategoriesFirst.submitList(it[0].movies)
 
             binding.rcSecondMovieCategory.adapter = adaptCategoriesSecond
-           binding.tvSecondCategoryTitle.text = it[1].categoryName
+            binding.tvSecondCategoryTitle.text = it[1].categoryName
             adaptCategoriesSecond.submitList(it[1].movies)
 
             binding.rThirdMovieCategory.adapter = adapterCategoriesThird

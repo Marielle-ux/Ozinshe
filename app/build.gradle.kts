@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
@@ -71,8 +72,10 @@ dependencies {
 
     implementation("com.github.bumptech.glide:glide:4.12.0")
     annotationProcessor("com.github.bumptech.glide:compiler:4.12.0")
-    
+
     implementation("com.google.code.gson:gson:2.9.1")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+
+    implementation ("com.github.bosphere.android-fadingedgelayout:fadingedgelayout:1.0.0")
 }
 
