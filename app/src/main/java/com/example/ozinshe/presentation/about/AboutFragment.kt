@@ -37,6 +37,7 @@ class AboutFragment : Fragment() {
         super.onStart()
         provideNavigationHost()?.apply {
             setNavigationVisibility(false)
+            setStateBarVisibility(false)
         }
     }
 
@@ -45,6 +46,8 @@ class AboutFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         provideNavigationHost()?.apply {
             setNavigationVisibility(false)
+            setStateBarVisibility(false)
+
         }
         val token = SharedProvider(requireContext()).getToken()
         viewModel.getMovieById(token, args.movieId)
