@@ -67,7 +67,7 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_gravity="center"
-                android:background="@drawable/ic_favorite_selected"/>
+                tools:src="@drawable/ic_favorite_selected" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -113,9 +113,9 @@
             android:id="@+id/AboutPageInfo"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:minHeight="900dp"
             android:layout_marginTop="310dp"
             android:background="@drawable/about_film_style_top_radius_32dp"
+            android:minHeight="900dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -132,6 +132,7 @@
                 android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
             <TextView
                 android:id="@+id/textTvAdditionalInfoYear"
                 android:layout_width="wrap_content"
@@ -139,42 +140,45 @@
                 android:fontFamily="@font/sf_medium"
                 android:textColor="@color/grey_400"
                 android:textSize="12sp"
-                tools:text="2020 ·"
-                app:layout_constraintTop_toTopOf="@id/textTvAdditionalInfoGenre"
                 app:layout_constraintBottom_toBottomOf="@id/textTvAdditionalInfoGenre"
-                app:layout_constraintStart_toStartOf="@id/textTvTittleMovie" />
+                app:layout_constraintStart_toStartOf="@id/textTvTittleMovie"
+                app:layout_constraintTop_toTopOf="@id/textTvAdditionalInfoGenre"
+                tools:text="2020 ·" />
+
             <TextView
                 android:id="@+id/textTvAdditionalInfoGenre"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="24dp"
                 android:fontFamily="@font/sf_medium"
                 android:textColor="@color/grey_400"
                 android:textSize="12sp"
-                tools:text="Шытырман оқиғалы мультсериал Елбасының «Ұлы даланың жеті қыры» бағдарламасы аясында жүз..."
-                app:layout_constraintTop_toBottomOf="@id/textTvTittleMovie"
-                app:layout_constraintStart_toEndOf="@id/textTvAdditionalInfoYear"
                 app:layout_constraintBottom_toTopOf="@id/view"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginEnd="24dp"/>
+                app:layout_constraintStart_toEndOf="@id/textTvAdditionalInfoYear"
+                app:layout_constraintTop_toBottomOf="@id/textTvTittleMovie"
+                tools:text="Шытырман оқиғалы мультсериал Елбасының «Ұлы даланың жеті қыры» бағдарламасы аясында жүз..." />
+
             <View
                 android:id="@+id/view"
                 android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:layout_marginStart="24dp"
-                android:layout_marginEnd="24dp"
                 android:layout_marginTop="24dp"
+                android:layout_marginEnd="24dp"
                 android:background="?attr/strokeColor"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/textTvAdditionalInfoGenre" />
+
             <com.bosphere.fadingedgelayout.FadingEdgeLayout
                 android:id="@+id/fadingEdgeLayoutDescription"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="24dp"
                 android:layout_marginTop="24dp"
                 app:fel_edge="bottom"
                 app:fel_size_bottom="120dp"
-                android:layout_marginHorizontal="24dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/view">
