@@ -67,7 +67,8 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_gravity="center"
-                android:background="@drawable/ic_favorite_selected"/>
+                android:background="@drawable/ic_favorite_unselected"
+                android:backgroundTint="@color/white" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -112,8 +113,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/AboutPageInfo"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:minHeight="900dp"
+            android:layout_height="900dp"
             android:layout_marginTop="310dp"
             android:background="@drawable/about_film_style_top_radius_32dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -132,41 +132,102 @@
                 android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-            <TextView
-                android:id="@+id/textTvAdditionalInfoYear"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/sf_medium"
-                android:textColor="@color/grey_400"
-                android:textSize="12sp"
-                tools:text="2020 ·"
-                app:layout_constraintTop_toTopOf="@id/textTvAdditionalInfoGenre"
-                app:layout_constraintBottom_toBottomOf="@id/textTvAdditionalInfoGenre"
-                app:layout_constraintStart_toStartOf="@id/textTvTittleMovie" />
-            <TextView
-                android:id="@+id/textTvAdditionalInfoGenre"
+
+            <LinearLayout
+                android:id="@+id/textFieldInfo"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/sf_medium"
-                android:textColor="@color/grey_400"
-                android:textSize="12sp"
-                tools:text="Шытырман оқиғалы мультсериал Елбасының «Ұлы даланың жеті қыры» бағдарламасы аясында жүз..."
+                android:orientation="horizontal"
                 app:layout_constraintTop_toBottomOf="@id/textTvTittleMovie"
-                app:layout_constraintStart_toEndOf="@id/textTvAdditionalInfoYear"
-                app:layout_constraintBottom_toTopOf="@id/view"
+                app:layout_constraintStart_toStartOf="@id/textTvTittleMovie"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginEnd="24dp"/>
-            <View
-                android:id="@+id/view"
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_marginStart="24dp"
-                android:layout_marginEnd="24dp"
-                android:layout_marginTop="24dp"
-                android:background="?attr/strokeColor"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/textTvAdditionalInfoGenre" />
+                android:layout_marginEnd="24dp">
+
+                <TextView
+                    android:id="@+id/textTvAdditionalInfoYear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/sf_medium"
+                    android:textColor="@color/grey_400"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="@+id/textTvTittleMovie"
+                    app:layout_constraintTop_toBottomOf="@+id/textTvTittleMovie"
+                    tools:text="2020" />
+
+                <TextView
+                    android:id="@+id/dotsInBetweenText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/sf_medium"
+                    android:text="•"
+                    android:textColor="@color/grey_400"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/textTvGenreInfo"
+                    app:layout_constraintStart_toEndOf="@+id/textTvAdditionalInfoYear" />
+
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="24dp"
+                    android:background="@color/grey_100"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/textTvAdditionalInfoYear" />
+
+                <TextView
+                    android:id="@+id/textTvGenreInfo"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/sf_medium"
+                    android:lines="1"
+                    android:textColor="@color/grey_400"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/textTvAdditionalInfoYear"
+                    app:layout_constraintStart_toEndOf="@+id/dotsInBetweenText"
+                    tools:text="Телехикая" />
+
+                <TextView
+                    android:id="@+id/dotsInBetweenTextOne"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:fontFamily="@font/sf_medium"
+                    android:text="•"
+                    android:textColor="@color/grey_400"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/textTvGenreInfo"
+                    app:layout_constraintStart_toEndOf="@+id/textTvGenreInfo" />
+
+                <TextView
+                    android:id="@+id/textTvEpisodeAndTime"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/sf_medium"
+                    android:lines="1"
+                    android:textColor="@color/grey_400"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/textTvAdditionalInfoYear"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/dotsInBetweenTextOne"
+                    tools:text="10 серия, 7 мин, 10 серия, 7 мин,10 серия, 7 мин,10 серия, 7 мин," />
+
+
+            </LinearLayout>
+
             <com.bosphere.fadingedgelayout.FadingEdgeLayout
                 android:id="@+id/fadingEdgeLayoutDescription"
                 android:layout_width="0dp"
@@ -177,7 +238,7 @@
                 android:layout_marginHorizontal="24dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/view">
+                app:layout_constraintTop_toBottomOf="@+id/textFieldInfo">
 
                 <TextView
                     android:id="@+id/textTvDescription"

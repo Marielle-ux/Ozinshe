@@ -1,6 +1,7 @@
 package com.example.ozinshe.presentation.home
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -38,8 +39,6 @@ class HomeFragment : Fragment() {
         provideNavigationHost()?.apply {
             setNavigationVisibility(false)
         }
-        val token = SharedProvider(requireContext()).getToken()
-        viewModel.getMainMovies(token)
         val adapterMainMovie = MainMovieAdapter()
         binding.rcMainMovies.adapter = adapterMainMovie
         adapterMainMovie.setOnMovieClickListener(object : RcViewItemClickMainMoviesCallback{
@@ -48,6 +47,10 @@ class HomeFragment : Fragment() {
                 findNavController().navigate(action)
             }
         })
+        val token = SharedProvider(requireContext()).getToken()
+        viewModel.getMainMovies(token)
+
+
         viewModel.mainMoviesResponse.observe(viewLifecycleOwner) {
             adapterMainMovie.submitList(it)
         }
@@ -56,6 +59,27 @@ class HomeFragment : Fragment() {
         val adapterCategoriesFirst = MoviesByCategoryMainAdapter()
         val adaptCategoriesSecond = MoviesByCategoryMainAdapter()
         val adapterCategoriesThird = MoviesByCategoryMainAdapter()
+        adapterCategoriesFirst.setOnMovieClickListener(object : RcViewItemClickMainMoviesCallback {
+            override fun onClick(movieId: Int) {
+                val action = HomeFragmentDirections.actionHomeFragmentToAboutFragment(movieId)
+                findNavController().navigate(action)
+            }
+        })
+
+        adaptCategoriesSecond.setOnMovieClickListener(object : RcViewItemClickMainMoviesCallback {
+            override fun onClick(movieId: Int) {
+                val action = HomeFragmentDirections.actionHomeFragmentToAboutFragment(movieId)
+                findNavController().navigate(action)
+            }
+        })
+
+        adapterCategoriesThird.setOnMovieClickListener(object : RcViewItemClickMainMoviesCallback {
+            override fun onClick(movieId: Int) {
+                val action = HomeFragmentDirections.actionHomeFragmentToAboutFragment(movieId)
+                findNavController().navigate(action)
+            }
+        })
+
         viewModel.moviesByCategoryMainModel.observe(viewLifecycleOwner) {
 
             binding.rcFirstMovieCategory.adapter = adapterCategoriesFirst

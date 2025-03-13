@@ -2,8 +2,7 @@
 plugins {
     alias(libs.plugins.android.application) apply false
     alias(libs.plugins.kotlin.android) apply false
-    alias(libs.plugins.safe.arags) apply false
-
+    alias(libs.plugins.navigationSafeArgs) version "2.7.7" apply false
 }
 buildscript {
     repositories {
