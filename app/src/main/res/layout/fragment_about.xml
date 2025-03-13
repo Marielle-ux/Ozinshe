@@ -62,8 +62,9 @@
             app:layout_constraintTop_toTopOf="@id/btnPlay">
 
             <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:id="@+id/btnIconFavorite"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:layout_gravity="center"
                 android:background="@drawable/ic_favorite_unselected"
                 android:backgroundTint="@color/white" />
@@ -72,7 +73,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:fontFamily="@font/sf_semi_bold"
+                android:fontFamily="@font/sf_regular"
+                android:textFontWeight="600"
                 android:text="Тізімге қосу"
                 android:textColor="@color/white"
                 android:textSize="12sp" />
@@ -86,11 +88,12 @@
             android:layout_marginEnd="53dp"
             android:orientation="vertical"
             app:layout_constraintStart_toEndOf="@id/btnPlay"
-            app:layout_constraintTop_toTopOf="@id/btnPlay">
+            app:layout_constraintTop_toTopOf="@id/btnPlay"
+            app:layout_constraintBottom_toBottomOf="@+id/btnPlay">
 
             <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:layout_gravity="center"
                 android:src="@drawable/ic_share"
                 android:backgroundTint="@color/white" />
@@ -99,7 +102,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:fontFamily="@font/sf_semi_bold"
+                android:fontFamily="@font/sf_regular"
+                android:textFontWeight="600"
                 android:text="Бөлісу"
                 android:textColor="@color/white"
                 android:textSize="12sp" />
@@ -134,7 +138,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/sf_medium"
-                android:text="2020"
+                tools:text="2020"
                 android:textColor="@color/grey_400"
                 android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="@+id/textTvTittleMovie"
@@ -145,13 +149,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:layout_marginStart="4dp"
                 android:fontFamily="@font/sf_medium"
                 android:text="•"
                 android:textColor="@color/grey_400"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="@+id/textTvGenreInfo"
-                app:layout_constraintEnd_toEndOf="@+id/textTvGenreInfo"
-                app:layout_constraintStart_toStartOf="@+id/AboutPageInfo" />
+                app:layout_constraintStart_toEndOf="@+id/textTvAdditionalInfoYear" />
 
             <View
                 android:id="@+id/view"
@@ -166,43 +170,48 @@
 
             <TextView
                 android:id="@+id/textTvGenreInfo"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="67dp"
                 android:layout_marginTop="8dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="16dp"
                 android:fontFamily="@font/sf_medium"
-                android:text="Телехикая"
+                android:lines="1"
+                android:ellipsize="end"
+                tools:text="Телехикая"
                 android:textColor="@color/grey_400"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="@+id/textTvAdditionalInfoYear"
-                app:layout_constraintStart_toStartOf="@+id/textTvAdditionalInfoYear" />
+                app:layout_constraintStart_toEndOf="@+id/dotsInBetweenText" />
 
             <TextView
                 android:id="@+id/dotsInBetweenTextOne"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/sf_medium"
+                android:layout_marginStart="4dp"
                 android:text="•"
                 android:textColor="@color/grey_400"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="@+id/textTvGenreInfo"
-                app:layout_constraintEnd_toEndOf="@+id/textTvEpisodeAndTime"
-                app:layout_constraintEnd_toStartOf="@+id/textTvEpisodeAndTime"
                 app:layout_constraintStart_toEndOf="@+id/textTvGenreInfo" />
 
             <TextView
                 android:id="@+id/textTvEpisodeAndTime"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="142dp"
+                android:layout_marginStart="4dp"
                 android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
                 android:fontFamily="@font/sf_medium"
-                android:text="10 серия, 7 мин"
+                android:lines="1"
+                android:ellipsize="end"
+                tools:text="10 серия, 7 мин, 10 серия, 7 мин,10 серия, 7 мин,10 серия, 7 мин,"
                 android:textColor="@color/grey_400"
                 android:textSize="12sp"
-                app:layout_constraintBottom_toBottomOf="@+id/textTvAdditionalInfoYear"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/textTvAdditionalInfoYear" />
+                app:layout_constraintBottom_toBottomOf="@+id/textTvAdditionalInfoYear"
+                app:layout_constraintStart_toEndOf="@+id/dotsInBetweenTextOne" />
 
             <com.bosphere.fadingedgelayout.FadingEdgeLayout
                 android:id="@+id/fadingEdgeLayoutDescription"
@@ -218,7 +227,7 @@
                 <TextView
                     android:id="@+id/textTvDescription"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:fontFamily="@font/sf_medium"
                     android:maxLines="7"
                     android:text="  "
@@ -307,6 +316,7 @@
                 app:layout_constraintStart_toStartOf="@id/view2"
                 app:layout_constraintTop_toBottomOf="@id/view2" />
 
+
             <TextView
                 android:id="@+id/textTvBolimder"
                 android:layout_width="wrap_content"
@@ -337,7 +347,7 @@
                 android:fontFamily="@font/sf_regular"
                 android:textFontWeight="600"
                 android:text="Скриншоттар"
-                android:textColor="?attr/colorOnPrimary"
+                android:textColor="@color/grey_900"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="@id/view2"
                 app:layout_constraintTop_toBottomOf="@+id/view2" />
@@ -361,7 +371,7 @@
                 android:fontFamily="@font/sf_regular"
                 android:textFontWeight="600"
                 android:text="Ұқсас телехикаялар"
-                android:textColor="?attr/colorOnPrimary"
+                android:textColor="@color/grey_900"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="@id/view2"
                 app:layout_constraintTop_toBottomOf="@id/rcViewScreenShots" />
@@ -385,19 +395,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@id/view2"
                 app:layout_constraintTop_toBottomOf="@id/textSimilar" />
-
-            <TextView
-                android:id="@+id/textTvGenres"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/sf_medium"
-                android:text="Айдар"
-                android:textColor="@color/grey_400"
-                android:textSize="12sp"
-                app:layout_constraintBottom_toBottomOf="@+id/textTvAdditionalInfoYear"
-                app:layout_constraintEnd_toEndOf="@+id/view"
-                app:layout_constraintStart_toEndOf="@+id/textTvAdditionalInfoYear"
-                app:layout_constraintTop_toTopOf="@+id/textTvAdditionalInfoYear" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

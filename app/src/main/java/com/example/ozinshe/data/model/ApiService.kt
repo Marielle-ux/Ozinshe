@@ -4,6 +4,7 @@ import com.example.ozinshe.data.signup.SignUpRequest
 import com.example.ozinshe.data.signup.SignUpResponse
 import retrofit2.http.Body
 import retrofit2.http.GET
+import retrofit2.http.HTTP
 import retrofit2.http.Header
 import retrofit2.http.POST
 import retrofit2.http.Path
@@ -27,4 +28,21 @@ interface ApiService {
       @Header("Authorization") token: String,
       @Path("id") id: Int
    ):MovieByIdResponse
+   @GET("/core/V1/seasons/{id}")
+   suspend fun getSeries(
+      @Header("Authorization") token: String,
+      @Path("id") id: Int
+   ):List<VideoResponse>
+
+   @POST("/core/V1/favorite")
+   suspend fun addFavorite(
+      @Header(value="Authorization") token: String,
+      @Body movieBody:MovieIdModel
+   ):MovieIdModel
+
+   @HTTP(method = "DELETE", path = "/core/V1/favorite/", hasBody = true)
+   suspend fun deleteFavorite(
+      @Header(value="Authorization") token: String,
+      @Body movieBody:MovieIdModel
+   ): Unit
 }

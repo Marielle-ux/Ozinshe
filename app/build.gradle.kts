@@ -1,10 +1,7 @@
-import org.jetbrains.kotlin.utils.addToStdlib.safeAs
-
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.safe.arags)
-
+    alias(libs.plugins.navigationSafeArgs)
 }
 
 android {
@@ -80,5 +77,8 @@ dependencies {
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 
     implementation ("com.github.bosphere.android-fadingedgelayout:fadingedgelayout:1.0.0")
+
+    implementation ("com.github.chrisbanes:PhotoView:2.3.0")
+    implementation ("com.pierfrancescosoffritti.androidyoutubeplayer:core:11.1.0")
 }
 
