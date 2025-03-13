@@ -36,13 +36,13 @@ interface ApiService {
 
    @POST("/core/V1/favorite")
    suspend fun addFavorite(
-      @Header(value="Authorization") token: String,
+      @Header("Authorization") token: String,
       @Body movieBody:MovieIdModel
    ):MovieIdModel
 
    @HTTP(method = "DELETE", path = "/core/V1/favorite/", hasBody = true)
    suspend fun deleteFavorite(
-      @Header(value="Authorization") token: String,
+      @Header("Authorization") token: String,
       @Body movieBody:MovieIdModel
-   ): Unit
+   )
 }

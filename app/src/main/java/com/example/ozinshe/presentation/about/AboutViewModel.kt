@@ -48,7 +48,7 @@ class AboutViewModel : ViewModel() {
             val response = ServiceBuilder.buildService(ApiService::class.java)
             runCatching { response.addFavorite("Bearer $token", movieId) }
                 .onSuccess {
-                    Log.d("AAA", "addFav: ${it.movieId}")
+                    Log.d("AAA", "addFav viewmodel: ${it.movieId}")
                     _favoriteState.postValue(true)
                 }
                 .onFailure {
@@ -63,7 +63,7 @@ class AboutViewModel : ViewModel() {
             val response = ServiceBuilder.buildService(ApiService::class.java)
             runCatching { response.deleteFavorite("Bearer $token", movieId) }
                 .onSuccess {
-                    Log.d("AAA", "deleteFavorite: ${it}")
+                    Log.d("AAA", "deleteFavorite viewmodel: ${it}")
                     _favoriteState.postValue(false)
                 }
                 .onFailure {

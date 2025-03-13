@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -88,8 +89,20 @@ class AboutFragment : Fragment() {
             binding.run {
                 textTvTittleMovie.text = it.name
                 val year = it.createdDate.substring(0, 4)
-                val genre = it.movieType
-                textTvAdditionalInfoYear.text = year
+                var genreInfoAbout  = it.genres.joinToString(separator = " · "){ "${it.name}"}
+
+                if (it.video == null) {
+                    binding.textTvAdditionalInfoYear.text = year+ " · "
+                        binding.textTvAdditionalInfoGenre?.text =  genreInfoAbout + " · " + "${it.seasonCount} сезон, ${it.seriesCount} серия"
+                } else {
+                    binding.run {
+                        textTvAdditionalInfoYear.text = year+ " · "
+                        binding.textTvAdditionalInfoGenre?.text = genreInfoAbout
+                        textTvBolimder.visibility = View.GONE
+                        textBolimder.visibility = View.GONE
+                        btnNextAllMovie.visibility = View.GONE
+                    }
+                }
                 Log.d("AAA", "DESCRIPTION" + it.description.toString())
 
                 btnBack.setOnClickListener {
@@ -99,23 +112,18 @@ class AboutFragment : Fragment() {
                 if (it.favorite) {
                     favoriteState = true
                     btnIconFavorite.background =
-                        resources.getDrawable(R.drawable.ic_favorite_selected, null)
+                        resources.getDrawable(R.drawable.ic_favorite_selected)
                 } else {
                     favoriteState = false
                     btnIconFavorite.background =
-                        resources.getDrawable(R.drawable.ic_favorite_unselected, null)
+                       resources.getDrawable(R.drawable.ic_favorite_unselected)
                 }
 
                 textTvDescription.text = it.description
-                textTvGenreInfo.text = genre
                 textTvDirector.text = it.director
                 textTvProducer.text = it.producer
 
-                var additionalInfo = " "
-                for (i in it.genres) {
-                    additionalInfo += "· ${i.name}"
-                }
-                textTvGenreInfo.text = additionalInfo
+
                 if (textTvDescription.lineCount == 1) {
                     btnMoreDescription.visibility = View.GONE
                     fadingEdgeLayoutDescription.setFadeSizes(0, 0, 0, 0)
@@ -133,40 +141,28 @@ class AboutFragment : Fragment() {
                     }
                 }
             }
-
-
-            if (it.video == null) {
-                binding.run {
-                    textTvBolimder.text = "${it.seasonCount} сезон, ${it.seriesCount} серия"
-                }
+        }
+        binding.btnFavorite.setOnClickListener {
+            Log.d("AAA", "btnFavorite = $token - $favoriteState")
+            if (!favoriteState) {
+                Log.d("AAA", "btnFavorite - add")
+                viewModel.addFavorite(token, MovieIdModel(args.movieId))
             } else {
-                binding.run {
-                    textTvBolimder.visibility = View.GONE
-                    textBolimder.visibility = View.GONE
-                    btnNextAllMovie.visibility = View.GONE
-                }
-            }
-            binding.btnFavorite.setOnClickListener { click ->
-                Log.d("AAA", "!!! $favoriteState")
-                if (!favoriteState) {
-                    Log.d("AAA", "!!!")
-                    viewModel.addFavorite(token, MovieIdModel(args.movieId))
-                } else {
-                    Log.d("AAA", "???")
-                    viewModel.deleteFavorite(token, MovieIdModel(args.movieId))
-
-                }
+                Log.d("AAA", "btnFavorite - delete")
+                viewModel.deleteFavorite(token, MovieIdModel(args.movieId))
             }
         }
         viewModel.favoriteState.observe(viewLifecycleOwner) {
-            if (!it) {
+            if (it) {
                 favoriteState = true
+                Log.d("AAA", " addFavorite observe: ${it}")
                 binding.btnIconFavorite.background =
-                    resources.getDrawable(R.drawable.ic_favorite_selected, null)
+                    ContextCompat.getDrawable(requireContext(),R.drawable.ic_favorite_selected)
             } else {
                 favoriteState = false
+                Log.d("AAA", "deleteFavorite observe: ${it}")
                 binding.btnIconFavorite.background =
-                    resources.getDrawable(R.drawable.ic_favorite_unselected, null)
+                    resources.getDrawable(R.drawable.ic_favorite_unselected)
             }
         }
         viewModel.errorResponse.observe(viewLifecycleOwner) {
