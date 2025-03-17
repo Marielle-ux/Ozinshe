@@ -55,7 +55,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="@font/sf_bold"
-                android:textColor="@color/grey_900"
+                android:textColor="?attr/textAppearanceBody1"
                 android:textSize="16dp"
                 tools:text="Толықметрлі мультфильмдер" />
 
@@ -102,7 +102,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="@font/sf_bold"
-                android:textColor="@color/grey_900"
+                android:textColor="?attr/textAppearanceBody1"
                 android:textSize="16dp"
                 tools:text="Мультсериалдар" />
 
@@ -149,7 +149,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="@font/sf_bold"
-                android:textColor="@color/grey_900"
+                android:textColor="?attr/textAppearanceBody1"
                 android:textSize="16dp"
                 tools:text="Ситкомдар" />
 

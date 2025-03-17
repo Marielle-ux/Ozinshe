@@ -1,7 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Ozinshe</string>
     <string name="profile_language">Тіл</string>
     <string name="profile_my_profile">Менің профилім</string>
     <string name="profile_personal_data">Жеке деректер</string>
-
 </resources>

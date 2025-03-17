@@ -30,7 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/sf_regular"
-        android:textColor="@color/grey_900"
+        android:textColor="?attr/textAppearanceBody1"
         android:textFontWeight="600"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
