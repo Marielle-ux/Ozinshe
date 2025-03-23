@@ -5,11 +5,11 @@
     android:layout_width="match_parent"
     android:background="?attr/colorPrimary"
     android:layout_height="match_parent"
-    tools:context=".presentation.profile.ProfileFragment">
+    tools:context="com.example.ozinshe.presentation.profile.ProfileFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <include
             android:id="@+id/toolbar_profile"
@@ -94,7 +94,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginEnd="14dp"
                     android:fontFamily="@font/sf_bold"
-                    android:text="Өңдеу"
+                    android:text="@string/profile_edit_personal_info"
                     android:textColor="@color/grey_400"
                     android:textFontWeight="600"
                     android:textSize="12dp" />
@@ -109,7 +109,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@drawable/divider_1dp_grey"
+                android:background="?attr/ViewColor"
                 android:backgroundTint="@color/grey_300"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -127,7 +127,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
                     android:fontFamily="@font/sf_medium"
-                    android:text="Құпия сөзді өзгерту"
+                    android:text="@string/profile_change_password"
                     android:textColor="?attr/colorTertiary"
                     android:textFontWeight="500"
                     android:textSize="16dp" />
@@ -142,7 +142,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@drawable/divider_1dp_grey"
+                android:background="?attr/ViewColor"
                 android:backgroundTint="@color/grey_300"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -187,7 +187,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@drawable/divider_1dp_grey"
+                android:background="?attr/ViewColor"
                 android:backgroundTint="@color/grey_300"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -205,7 +205,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
                     android:fontFamily="@font/sf_medium"
-                    android:text="Ережелер мен шарттар"
+                    android:text="@string/profile_policy"
                     android:textColor="?attr/colorTertiary"
                     android:textFontWeight="500"
                     android:textSize="16dp" />
@@ -220,43 +220,16 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@drawable/divider_1dp_grey"
+                android:background="?attr/ViewColor"
                 android:backgroundTint="@color/grey_300"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
-            <LinearLayout
-                android:id="@+id/btnNotifications"
-                android:layout_width="match_parent"
-                android:layout_height="64dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/sf_medium"
-                    android:text="Хабарландырулар"
-                    android:textColor="?attr/colorTertiary"
-                    android:textFontWeight="500"
-                    android:textSize="16dp" />
-
-                <com.google.android.material.materialswitch.MaterialSwitch
-                    android:id="@+id/SwitchNotifications"
-                    android:layout_width="67dp"
-                    android:layout_height="37dp"
-                    android:backgroundTint="@color/primary_500"
-                    android:layout_gravity="center_vertical"
-                    android:checked="true"
-                    app:thumbTint="@color/white"/>
-            </LinearLayout>
-
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@drawable/divider_1dp_grey"
+                android:background="?attr/ViewColor"
                 android:backgroundTint="@color/grey_300"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -274,7 +247,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"
                     android:fontFamily="@font/sf_medium"
-                    android:text="Қараңғы режим"
+                    android:text="@string/profile_light_dark_mode"
                     android:textColor="?attr/colorTertiary"
                     android:textFontWeight="500"
                     android:textSize="16dp" />
@@ -287,7 +260,7 @@
                     android:checked="false"
                     android:layout_marginEnd="-10dp"
                     style="@style/CustomSwitchButton"
-                    app:kswBackColor="?attr/colorSwitchThumbNormal"
+                    app:kswBackColor="?attr/SwitchThemeButton"
                     app:kswThumbColor="@color/white" 
                     app:thumbTint="@color/primary_300"/>
             </LinearLayout>
@@ -295,7 +268,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@drawable/divider_1dp_grey"
+                android:background="?attr/ViewColor"
                 android:backgroundTint="@color/grey_300"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

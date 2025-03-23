@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/background_circle_32dp"
+    android:backgroundTint="?attr/colorPrimary"
     android:paddingBottom="24dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -20,10 +21,10 @@
         android:id="@+id/tvLanguage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/profile_language"
+        android:text="@string/profile_language_select"
         android:fontFamily="@font/sf_bold"
         android:textFontWeight="700"
-        android:textColor="@color/grey_900"
+        android:textColor="?attr/textAppearanceBody1"
         android:textSize="24dp"
         android:layout_marginTop="32dp"
         android:layout_marginStart="24dp"
@@ -50,8 +51,8 @@
                 android:layout_gravity="center"
                 android:fontFamily="@font/sf_bold"
                 android:textFontWeight="600"
-                android:text="English"
-                android:textColor="@color/grey_900"
+                android:text="@string/profile_english"
+                android:textColor="?attr/textAppearanceBody1"
                 android:textSize="16dp" />
             <View
                 android:id="@+id/IconBtnSelectedEnglish"
@@ -78,8 +79,8 @@
                 android:layout_gravity="center"
                 android:fontFamily="@font/sf_bold"
                 android:textFontWeight="600"
-                android:text="Қазақша"
-                android:textColor="@color/grey_900"
+                android:text="@string/profile_kazakh"
+                android:textColor="?attr/textAppearanceBody1"
                 android:textSize="16dp" />
             <View
                 android:id="@+id/IconBtnSelectedKazakh"
@@ -106,8 +107,8 @@
                 android:layout_gravity="center"
                 android:fontFamily="@font/sf_bold"
                 android:textFontWeight="600"
-                android:text="Русский"
-                android:textColor="@color/grey_900"
+                android:text="@string/profile_russian"
+                android:textColor="?attr/textAppearanceBody1"
                 android:textSize="16dp" />
             <View
                 android:id="@+id/IconBtnSelectedRussian"

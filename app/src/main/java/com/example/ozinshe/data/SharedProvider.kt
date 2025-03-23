@@ -35,4 +35,12 @@ class SharedProvider(private val context: Context) {
     fun clearShared() {
         preference.edit().remove(shared_token).apply()
     }
+
+    fun addFavorite():String{
+        return preference.getString("favorite", "").toString()
+    }
+
+    fun removeFavorite():String{
+        return preference.getString("favorite", "").toString()
+    }
 }

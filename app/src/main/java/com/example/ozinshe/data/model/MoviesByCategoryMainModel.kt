@@ -1,3 +1,4 @@
 package com.example.ozinshe.data.model
 
-class MoviesByCategoryMainModel : ArrayList<MoviesByCategoryMainModelItem>()
+class MoviesByCategoryMainModel : ArrayList<MoviesByCategoryMainModelItem>() {
+}

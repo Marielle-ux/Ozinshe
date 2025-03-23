@@ -25,9 +25,6 @@
         android:id="@+id/bottomNavBar"
         android:layout_width="match_parent"
         android:layout_height="88dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:animateLayoutChanges="false"
         android:background="?attr/colorPrimary"
         android:clickable="false"
@@ -35,7 +32,10 @@
         app:labelVisibilityMode="unlabeled"
         app:itemRippleColor="@color/ful_transparent"
         app:itemIconTint="@color/grey_400"
-        app:menu="@menu/bottom_menu"/>
+        app:menu="@menu/bottom_menu"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 
 

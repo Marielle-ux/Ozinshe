@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView
+    android:id="@+id/FragmentAbout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -114,7 +116,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="310dp"
-            android:background="@drawable/about_film_style_top_radius_32dp"
+            android:background="?attr/CustomAboutPage"
             android:minHeight="900dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -127,8 +129,8 @@
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="24dp"
                 android:fontFamily="@font/sf_bold"
-                android:text="Қызғалдақтар мекені "
-                android:textColor="@color/grey_900"
+                android:text="Қызғалдақтар мекені"
+                android:textColor="?attr/CustomAboutPageText"
                 android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -267,7 +269,7 @@
                 android:layout_marginTop="24dp"
                 android:fontFamily="@font/sf_regular"
                 android:text="Бөлімдер"
-                android:textColor="@color/grey_900"
+                android:textColor="?attr/CustomAboutPageText"
                 android:textFontWeight="600"
                 android:textSize="16dp"
                 app:layout_constraintStart_toStartOf="@id/view2"
@@ -294,7 +296,7 @@
                 android:src="@drawable/ic_button_next"
                 app:layout_constraintBottom_toBottomOf="@+id/textBolimder"
                 app:layout_constraintEnd_toEndOf="@id/view2"
-                app:layout_constraintTop_toTopOf="@+id/textBolimder" />
+                app:layout_constraintTop_toTopOf="@+id/textBolimder"/>
 
             <TextView
                 android:id="@+id/textScreenshots"
@@ -303,7 +305,7 @@
                 android:layout_marginTop="68dp"
                 android:fontFamily="@font/sf_regular"
                 android:text="Скриншоттар"
-                android:textColor="@color/grey_900"
+                android:textColor="?attr/CustomAboutPageText"
                 android:textFontWeight="600"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="@id/view2"

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?attr/colorPrimary"
     android:fillViewport="true"
     android:orientation="vertical"
     tools:context=".presentation.home.HomeFragment">
@@ -55,16 +56,16 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="@font/sf_bold"
+                android:text="Толықметрлі мультфильмдер"
                 android:textColor="?attr/textAppearanceBody1"
-                android:textSize="16dp"
-                tools:text="Толықметрлі мультфильмдер" />
+                android:textSize="16dp" />
 
             <TextView
                 android:id="@+id/btnFirstCategoryAll"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/sf_regular"
-                android:text="Барлығы"
+                android:text="@string/home_fragment_all"
                 android:textColor="@color/primary_300"
                 android:textFontWeight="600"
                 android:textSize="14dp" />
@@ -72,8 +73,8 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rcFirstMovieCategory"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
             android:layout_marginStart="24dp"
             android:layout_marginTop="16dp"
             android:orientation="horizontal"
@@ -102,16 +103,16 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="@font/sf_bold"
+                android:text="Мультсериалдар"
                 android:textColor="?attr/textAppearanceBody1"
-                android:textSize="16dp"
-                tools:text="Мультсериалдар" />
+                android:textSize="16dp" />
 
             <TextView
                 android:id="@+id/btnSecondCategoryAll"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/sf_regular"
-                android:text="Барлығы"
+                android:text="@string/home_fragment_all"
                 android:textColor="@color/primary_300"
                 android:textFontWeight="600"
                 android:textSize="14dp" />
@@ -119,8 +120,8 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rcSecondMovieCategory"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
             android:layout_marginStart="24dp"
             android:layout_marginTop="16dp"
             android:orientation="horizontal"
@@ -149,33 +150,43 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="@font/sf_bold"
+                android:text="Ситкомдар"
                 android:textColor="?attr/textAppearanceBody1"
-                android:textSize="16dp"
-                tools:text="Ситкомдар" />
+                android:textSize="16dp" />
 
             <TextView
                 android:id="@+id/btnThirdCategoryAll"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/sf_regular"
-                android:text="Барлығы"
+                android:text="@string/home_fragment_all"
                 android:textColor="@color/primary_300"
                 android:textFontWeight="600"
-                android:textSize="14dp"/>
+                android:textSize="14dp" />
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rThirdMovieCategory"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
             android:layout_marginStart="24dp"
             android:layout_marginTop="16dp"
+            android:nestedScrollingEnabled="false"
             android:orientation="horizontal"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ThirdFieldCategory"
-            tools:listitem="@layout/item_category_movie"/>
+            tools:listitem="@layout/item_category_movie" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            android:layout_weight="1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toBottomOf="@id/rThirdMovieCategory" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

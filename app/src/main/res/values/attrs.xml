@@ -1,9 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <attr name="customMainLogoColorPrimary" format="reference" />
-    <attr name="customMainLogoColorSecondary" format="reference" />
+    <attr name="customMainLogoColorPrimary" format="reference"/>
+    <attr name="customMainLogoColorSecondary" format="reference"/>
+    <attr name="customMainLogoColorTertiary" format="reference"/>
+    <attr name="customMainLogoColorQuaternary" format="reference"/>
+    <attr name="customTextOnBoardingColor" format="reference"/>
+    <attr name="customTextOnBoardingColorSecondary" format="reference"/>
+    <attr name="customTextOnBoardingColorTertiary" format="reference"/>
+    <attr name="customButtonColor" format="reference"/>
+    <attr name="SearchTextColor" format="reference"/>
 
-    <!--  Home Fragment  -->
+    <!--Sign Up Fragment-->
+    <attr name="CustomSignUpTextColor" format="reference"/>
+    <!--Search Fragment-->
+    <attr name="SearchButtonColor" format="reference"/>
+    <attr name="SearchButtonInside" format="reference"/>
+    <attr name="SearchFragmentLinerLayout" format="reference"/>
+    <attr name="SearchFragmentRecommendations" format="reference"/>
+    <attr name="SearchFragmentToolbarText" format="reference"/>
+    <attr name="SearchFragmentToolbar" format="reference"/>
 
-    <!--  Profile Fragment  -->
+    <!--Login Fragment-->
+    <attr name="CustomLoginTextColor" format="reference"/>
+
+    <!--View-->
+    <attr name="ViewColor" format="reference" />
+    <attr name="ProfileToolbarText" format="reference"/>
+
+    <!--About Fragment-->
+    <attr name="CustomAboutPage" format="reference"/>
+    <attr name="CustomAboutPageText" format="reference"/>
+    <attr name="CustomAboutPageTextSecondary" format="reference"/>
+
+    <attr name="SwitchThemeButton" format="reference"/>
+
+    <attr name="OnboardingFillColor" format="reference"/>
+    <!--Favorite Fragment-->
+    <attr name="FavoriteToolbarText" format="reference"/>
+    <attr name="FavoriteFragmentRc" format="reference"/>
 </resources>

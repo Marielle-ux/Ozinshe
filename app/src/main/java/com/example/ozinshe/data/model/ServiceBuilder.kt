@@ -7,7 +7,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 object ServiceBuilder {
 
     private val client = OkHttpClient.Builder().build()
-
     private val retrofit = Retrofit.Builder()
         .baseUrl("http://api.ozinshe.com")
         .addConverterFactory(GsonConverterFactory.create())

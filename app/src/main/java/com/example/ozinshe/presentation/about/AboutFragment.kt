@@ -1,12 +1,15 @@
+@file:Suppress("NAME_SHADOWING")
+
 package com.example.ozinshe.presentation.about
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -24,12 +27,13 @@ class AboutFragment : Fragment() {
     private val args: AboutFragmentArgs by navArgs()
     private val viewModel: AboutViewModel by viewModels()
     private var favoriteState: Boolean = false
+    private var dataForVideo: MovieByIdResponse? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentAboutBinding.inflate(layoutInflater, container, false)
+        binding = FragmentAboutBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -41,135 +45,122 @@ class AboutFragment : Fragment() {
         }
     }
 
-    private var dataForVideo: MovieByIdResponse? = null
+    @SuppressLint("UseCompatLoadingForDrawables", "SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         provideNavigationHost()?.apply {
             setNavigationVisibility(false)
             setStateBarVisibility(false)
-
         }
+
         val token = SharedProvider(requireContext()).getToken()
         viewModel.getMovieById(token, args.movieId)
+
+        // Навигация
         binding.btnPlay.setOnClickListener {
-            if (dataForVideo?.video != null) {
-                val action =
-                    AboutFragmentDirections.actionAboutFragmentToVideoFragment(
-                        dataForVideo?.video?.link ?: ""
-                    )
-                findNavController().navigate(action)
-            } else {
-                val action =
+            dataForVideo?.let { movie ->
+                val action = if (movie.video != null) {
+                    AboutFragmentDirections.actionAboutFragmentToVideoFragment(movie.video.link)
+                } else {
                     AboutFragmentDirections.actionAboutFragmentToSeriesFragment(args.movieId)
+                }
                 findNavController().navigate(action)
-
             }
         }
 
-        binding.textBolimder.setOnClickListener {
-            val action = AboutFragmentDirections.actionAboutFragmentToSeriesFragment(args.movieId)
-            findNavController().navigate(action)
-        }
-        binding.btnNextAllMovie.setOnClickListener {
-            val action = AboutFragmentDirections.actionAboutFragmentToSeriesFragment(args.movieId)
-            findNavController().navigate(action)
-        }
-        viewModel.moviesByIdResponse.observe(viewLifecycleOwner) {
-            dataForVideo = it
-            Log.d("AAA", it.toString())
-            val adapter = ImageAdapter()
-            binding.rcViewScreenShots.adapter = adapter
-            adapter.submitList(it.screenshots)
-            adapter.setOnScreenShotClickListener(object : RcViewItemClickImageCallback {
-                override fun onClick(link: String) {
-                    val action = AboutFragmentDirections.actionAboutFragmentToImageFragment(link)
-                    findNavController().navigate(action)
-                }
-            }
-            )
+        val toSeriesAction = AboutFragmentDirections.actionAboutFragmentToSeriesFragment(args.movieId)
+        binding.textBolimder.setOnClickListener { findNavController().navigate(toSeriesAction) }
+        binding.btnNextAllMovie.setOnClickListener { findNavController().navigate(toSeriesAction) }
 
-            Glide.with(requireContext()).load(it.poster.link).into(binding.imgPoster)
-            binding.run {
-                textTvTittleMovie.text = it.name
-                val year = it.createdDate.substring(0, 4)
-                var genreInfoAbout  = it.genres.joinToString(separator = " · "){ "${it.name}"}
+        // Наблюдение за данными фильма
+        viewModel.moviesByIdResponse.observe(viewLifecycleOwner) { movie ->
+            dataForVideo = movie
+            Log.d("AAA", movie.toString())
 
-                if (it.video == null) {
-                    binding.textTvAdditionalInfoYear.text = year+ " · "
-                        binding.textTvAdditionalInfoGenre?.text =  genreInfoAbout + " · " + "${it.seasonCount} сезон, ${it.seriesCount} серия"
-                } else {
-                    binding.run {
-                        textTvAdditionalInfoYear.text = year+ " · "
-                        binding.textTvAdditionalInfoGenre?.text = genreInfoAbout
-                        textTvBolimder.visibility = View.GONE
-                        textBolimder.visibility = View.GONE
-                        btnNextAllMovie.visibility = View.GONE
+            val adapter = ImageAdapter().apply {
+                submitList(movie.screenshots)
+                setOnScreenShotClickListener(object : RcViewItemClickImageCallback {
+                    override fun onClick(link: String) {
+                        val action = AboutFragmentDirections.actionAboutFragmentToImageFragment(link)
+                        findNavController().navigate(action)
                     }
-                }
-                Log.d("AAA", "DESCRIPTION" + it.description.toString())
+                })
+            }
+            binding.rcViewScreenShots.adapter = adapter
 
-                btnBack.setOnClickListener {
-                    requireActivity().onBackPressed()
-                }
+            Glide.with(requireContext()).load(movie.poster.link).into(binding.imgPoster)
 
-                if (it.favorite) {
-                    favoriteState = true
-                    btnIconFavorite.background =
-                        resources.getDrawable(R.drawable.ic_favorite_selected)
+            val year = movie.createdDate.substring(0, 4)
+            val genreText = movie.genres.joinToString(" · ") { it.name }
+
+            with(binding) {
+                textTvTittleMovie.text = movie.name
+                textTvAdditionalInfoYear.text = "$year · "
+
+                if (movie.video == null) {
+                    textTvAdditionalInfoGenre?.text =
+                        "$genreText · ${movie.seasonCount} сезон, ${movie.seriesCount} серия"
                 } else {
-                    favoriteState = false
-                    btnIconFavorite.background =
-                       resources.getDrawable(R.drawable.ic_favorite_unselected)
+                    textTvAdditionalInfoGenre?.text = genreText
+                    textTvBolimder.visibility = View.GONE
+                    textBolimder.visibility = View.GONE
+                    btnNextAllMovie.visibility = View.GONE
                 }
 
-                textTvDescription.text = it.description
-                textTvDirector.text = it.director
-                textTvProducer.text = it.producer
+                textTvDescription.text = movie.description
+                textTvDirector.text = movie.director
+                textTvProducer.text = movie.producer
 
+                // Кнопка назад
+                btnBack.setOnClickListener { requireActivity().onBackPressed() }
 
+                // Кнопка "Толығырақ"
                 if (textTvDescription.lineCount == 1) {
                     btnMoreDescription.visibility = View.GONE
                     fadingEdgeLayoutDescription.setFadeSizes(0, 0, 0, 0)
                 } else {
                     btnMoreDescription.setOnClickListener {
-                        if (textTvDescription.maxLines >= 100) {
-                            textTvDescription.maxLines = 7
-                            btnMoreDescription.text = "Толығырақ"
-                            fadingEdgeLayoutDescription.setFadeSizes(0, 0, 120, 0)
-                        } else {
-                            textTvDescription.maxLines = 1000
-                            btnMoreDescription.text = "Жасыру"
-                            fadingEdgeLayoutDescription.setFadeSizes(0, 0, 0, 0)
-                        }
+                        val expanded = textTvDescription.maxLines >= 100
+                        textTvDescription.maxLines = if (expanded) 7 else 1000
+                        btnMoreDescription.text = if (expanded) "Толығырақ" else "Жасыру"
+                        fadingEdgeLayoutDescription.setFadeSizes(0, 0, if (expanded) 120 else 0, 0)
                     }
                 }
+
+                // Обновление состояния избранного
+                viewModel.favoriteState.value = movie.favorite
             }
         }
+
+        // Кнопка избранного
         binding.btnFavorite.setOnClickListener {
-            Log.d("AAA", "btnFavorite = $token - $favoriteState")
+            val token = SharedProvider(requireContext()).getToken()
+            val movieIdModel = MovieIdModel(args.movieId)
             if (!favoriteState) {
-                Log.d("AAA", "btnFavorite - add")
-                viewModel.addFavorite(token, MovieIdModel(args.movieId))
+                viewModel.addFavorite(token, movieIdModel)
             } else {
-                Log.d("AAA", "btnFavorite - delete")
-                viewModel.deleteFavorite(token, MovieIdModel(args.movieId))
+                viewModel.deleteFavorite(token, movieIdModel)
             }
         }
+
+        // Обновление иконки избранного
         viewModel.favoriteState.observe(viewLifecycleOwner) {
-            if (it) {
-                favoriteState = true
-                Log.d("AAA", " addFavorite observe: ${it}")
-                binding.btnIconFavorite.background =
-                    ContextCompat.getDrawable(requireContext(),R.drawable.ic_favorite_selected)
-            } else {
-                favoriteState = false
-                Log.d("AAA", "deleteFavorite observe: ${it}")
-                binding.btnIconFavorite.background =
-                    resources.getDrawable(R.drawable.ic_favorite_unselected)
-            }
+            favoriteState = it
+            updateFavoriteIcon(it)
+            Log.d("AAA", "favoriteState updated: $it")
         }
+
         viewModel.errorResponse.observe(viewLifecycleOwner) {
-            Log.d("AAA", it)
+            Log.d("AAA", "Error: $it")
         }
+    }
+
+    private fun updateFavoriteIcon(isFavorite: Boolean) {
+        val drawable = if (isFavorite) {
+            R.drawable.ic_favorite_selected
+        } else {
+            R.drawable.ic_favorite_unselected
+        }
+        binding.btnIconFavorite.background = ContextCompat.getDrawable(requireContext(), drawable)
     }
 }

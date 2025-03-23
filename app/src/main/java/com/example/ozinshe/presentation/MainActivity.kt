@@ -44,6 +44,17 @@ class MainActivity : AppCompatActivity(), NavigationHostProvider {
             showTransparentStatusBar()
         }
     }
+
+    override fun setNavigationToolBar(visible: Boolean, btnExitVisible: Boolean) {
+    }
+
+    override fun additionalToolBarConfig(
+        toolbarVisible: Boolean,
+        btnExitVisible: Boolean,
+        titleVisible: Boolean,
+        title: String
+    ) {
+    }
 //TODO надо менять все что внизу ↓↓↓↓↓↓↓↓↓ чтобы статус бар был прозрачным и не прозрачным если не получится ок
 
     private fun showStatusBar() {
