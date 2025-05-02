@@ -10,6 +10,8 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.FragmentTransaction
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
+import com.example.ozinshe.R
 import com.example.ozinshe.data.SharedProvider
 import com.example.ozinshe.databinding.FragmentProfileBinding
 import kotlinx.coroutines.launch
@@ -31,6 +33,10 @@ class ProfileFragment : Fragment(), OnLanguageSelectedListener {
         super.onViewCreated(view, savedInstanceState)
         systemLanguage()
 
+        binding.toolbarProfile.btnExit.setOnClickListener{
+            SharedProvider(requireContext()).clearToken()
+            findNavController().navigate(R.id.splashFragment)
+        }
         val transaction: FragmentTransaction = parentFragmentManager.beginTransaction()
         if (Build.VERSION.SDK_INT >= 26) {
             transaction.setReorderingAllowed(false)

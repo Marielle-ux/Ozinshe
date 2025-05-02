@@ -28,7 +28,7 @@
         android:animateLayoutChanges="false"
         android:background="?attr/colorPrimary"
         android:clickable="false"
-        app:itemIconSize="40dp"
+        app:itemIconSize="24dp"
         app:labelVisibilityMode="unlabeled"
         app:itemRippleColor="@color/ful_transparent"
         app:itemIconTint="@color/grey_400"

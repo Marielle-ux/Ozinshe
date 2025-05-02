@@ -19,7 +19,7 @@ class SearchViewModel : ViewModel() {
     val errorResponse: LiveData<String> = _errorResponse
 
 
-    fun getSearchMovie(token: String, search: String, movieId: Int) {
+    fun getSearchMovie(token: String, search: String) {
         viewModelScope.launch(Dispatchers.IO) {
             val response = ServiceBuilder.buildService(ApiService::class.java)
             runCatching { response.getSearchMovie("Bearer $token","{}","{}","{}",search) }

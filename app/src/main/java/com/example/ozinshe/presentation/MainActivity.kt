@@ -1,5 +1,6 @@
 package com.example.ozinshe.presentation
 
+import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.view.View
@@ -7,6 +8,7 @@ import android.view.WindowInsets
 import android.view.WindowInsetsController
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
@@ -29,8 +31,10 @@ class MainActivity : AppCompatActivity(), NavigationHostProvider {
         val navController = findNavController(R.id.nav_host_fragment)
         binding?.bottomNavBar?.setupWithNavController(navController)
 
+
+
         // Устанавливаем белый статус бар по умолчанию
-        setStatusBarColor(resources.getColor(android.R.color.white, theme), true)
+        setStatusBarColor(isTransparent = false, isLight = true)
     }
 
     override fun setNavigationVisibility(visible: Boolean) {
@@ -63,7 +67,8 @@ class MainActivity : AppCompatActivity(), NavigationHostProvider {
         } else {
             window.clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
         }
-        setStatusBarColor(resources.getColor(android.R.color.white, theme), true)
+        setStatusBarColor(false, true) // не прозрачный, светлый
+
     }
 
     private fun showTransparentStatusBar() {
@@ -75,16 +80,23 @@ class MainActivity : AppCompatActivity(), NavigationHostProvider {
         window.statusBarColor = resources.getColor(android.R.color.transparent, theme)
     }
 
-    fun setStatusBarColor(color: Int, isLight: Boolean) {
-        window.statusBarColor = color
+    private fun setStatusBarColor(isTransparent: Boolean, isLight:Boolean) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            val controller = window.insetsController
-            if (controller != null) {
-                controller.setSystemBarsAppearance(
-                    if (isLight) WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS else 0,
-                    WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS
-                )
-            }
+            window.insetsController?.show(WindowInsets.Type.statusBars())
+        } else {
+            window.clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
+        }
+        window.statusBarColor = if (isTransparent) {
+            Color.TRANSPARENT
+        } else {
+            ContextCompat.getColor(this, android.R.color.white)
+        }
+        // Настройка текста и иконок (светлый/тёмный)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            window.insetsController?.setSystemBarsAppearance(
+                if (isLight) WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS else 0,
+                WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS
+            )
         } else {
             @Suppress("DEPRECATION")
             window.decorView.systemUiVisibility = if (isLight) {

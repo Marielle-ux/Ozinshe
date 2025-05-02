@@ -18,7 +18,6 @@ import com.example.ozinshe.provideNavigationHost
 class SearchFragment : Fragment() {
 
     private lateinit var binding: FragmentSearchBinding
-    private val args: SearchFragmentArgs by navArgs()
     private val viewModel: SearchViewModel by viewModels()
 
     override fun onCreateView(
@@ -72,33 +71,49 @@ class SearchFragment : Fragment() {
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 val inputText = s.toString()
                 val token = SharedProvider(requireContext()).getToken()
-                viewModel.getSearchMovie(token, search = inputText, args.movieId)
+                viewModel.getSearchMovie(token, search = inputText)
 
                 if (s.isNullOrEmpty()) {
-                    binding.btnRefreshEditText.visibility = View.GONE
+                    binding.rcViewSearchFragment.visibility = View.GONE
                     binding.sanattarConstraintLayout.visibility = View.VISIBLE
-                    binding.searchResultConstraintLayout.visibility = View.GONE
                 } else {
-                    binding.btnRefreshEditText.visibility = View.VISIBLE
-                    binding.sanattarConstraintLayout.visibility = View.GONE // <<< ВАЖНО!
-                    binding.searchResultConstraintLayout.visibility = View.VISIBLE
-
-                    binding.btnRefreshEditText.setOnClickListener {
-                        binding.editTextSearchMovie.text?.clear()
-                        binding.sanattarConstraintLayout.visibility = View.VISIBLE
-                        binding.searchResultConstraintLayout.visibility = View.GONE
-                    }
+                    binding.rcViewSearchFragment.visibility = View.VISIBLE
+                    binding.sanattarConstraintLayout.visibility = View.GONE
                 }
             }
 
             override fun afterTextChanged(s: Editable?) {}
         })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        binding.btnRefreshEditText.setOnClickListener {
+            binding.editTextSearchMovie.text?.clear()
+            binding.sanattarConstraintLayout.visibility = View.VISIBLE
+            binding.searchResultConstraintLayout.visibility = View.GONE
+        }
+
+
+
+
         val searchAdapter = SearchMovieAdapter()
         binding.rcViewSearchFragment.adapter = searchAdapter
         searchAdapter.setOnSearchClickListener(object : SearchItemClickCallback {
             override fun onMovieClick(movieId: Int) {
                 Log.d("SEARCH", "Clicked movieId: $movieId")
-                val action = SearchFragmentDirections.actionSearchFragmentToAboutFragment(args.movieId)
+                val action = SearchFragmentDirections.actionSearchFragmentToAboutFragment(movieId)
                 findNavController().navigate(action)
             }
         })
