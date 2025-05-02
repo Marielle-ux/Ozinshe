@@ -67,7 +67,7 @@ class AboutViewModel : ViewModel() {
                     _favoriteState.postValue(false)
                 }
                 .onFailure {
-                    _errorResponse.postValue(it.message)
+                    _errorResponse.postValue(it.toString())
                 }
         }
     }

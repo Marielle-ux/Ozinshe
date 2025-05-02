@@ -45,11 +45,7 @@ class FavoriteFragment : Fragment() {
         viewModel.getFavoriteList(token)
 
         viewModel.favoriteList.observe(viewLifecycleOwner) { list ->
-            if (list.isNotEmpty()) {
-                adapterFavorite.submitList(list)
-            } else {
-                Log.d("FavoriteFragment", "Список избранного пуст")
-            }
+                adapterFavorite.submitList(list.toList())
         }
     }
 }

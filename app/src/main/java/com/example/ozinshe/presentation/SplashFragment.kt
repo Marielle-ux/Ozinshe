@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.ozinshe.R
+import com.example.ozinshe.data.SharedProvider
 import com.example.ozinshe.provideNavigationHost
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -32,7 +33,12 @@ class SplashFragment : Fragment() {
 
         lifecycleScope.launch {
             delay(3000)
-            findNavController().navigate(R.id.action_splashFragment_to_onboardingFragment)
+            val userToken = SharedProvider(requireContext()).getToken()
+            if (userToken.isNotEmpty()) {
+                findNavController().navigate(R.id.homeFragment)
+            } else {
+                findNavController().navigate(R.id.onboardingFragment)
+            }
         }
 
     }

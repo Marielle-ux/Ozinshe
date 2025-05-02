@@ -1,5 +1,6 @@
 package com.example.ozinshe.data.model
 
+import com.example.ozinshe.data.model.favoriteModel.FavoriteListResponse
 import com.example.ozinshe.data.signup.SignUpRequest
 import com.example.ozinshe.data.signup.SignUpResponse
 import retrofit2.http.Body
@@ -36,12 +37,10 @@ interface ApiService {
         @Path("id") id: Int
     ): List<VideoResponse>
 
-    @GET("/core/V1/favorite")
-    suspend fun getFavoriteList(
-        @Header("Authorization") token: String
-    ):List<FavoriteModelItem>
+    @GET("/core/V1/favorite/")
+    suspend fun getFavoriteList(@Header("Authorization") token: String):FavoriteListResponse
 
-    @GET("/core/V1/favorite")
+    @POST("/core/V1/favorite")
     suspend fun addFavorite(
         @Header("Authorization") token: String,
         @Body movieId: MovieIdModel
@@ -51,7 +50,7 @@ interface ApiService {
     suspend fun deleteFavorite(
         @Header("Authorization") token: String,
         @Body movieId: MovieIdModel
-    ): FavoriteResponse
+    )
 
     @GET("/core/V1/movies/search")
     suspend fun getSearchMovie(

@@ -12,6 +12,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.ozinshe.NavigationHostProvider
 import com.example.ozinshe.R
+import com.example.ozinshe.data.SharedProvider
 import com.example.ozinshe.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity(), NavigationHostProvider {
@@ -28,6 +29,8 @@ class MainActivity : AppCompatActivity(), NavigationHostProvider {
         binding?.bottomNavBar?.itemIconTintList = null
         val navController = findNavController(R.id.nav_host_fragment)
         binding?.bottomNavBar?.setupWithNavController(navController)
+
+
 
         // Устанавливаем белый статус бар по умолчанию
         setStatusBarColor(resources.getColor(android.R.color.white, theme), true)

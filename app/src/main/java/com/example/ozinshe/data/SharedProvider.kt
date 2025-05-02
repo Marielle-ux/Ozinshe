@@ -16,6 +16,9 @@ class SharedProvider(private val context: Context) {
     fun getToken(): String {
         return preference.getString(shared_token, "").toString()
     }
+    fun clearToken() {
+        preference.edit().remove(shared_token).apply()
+    }
 
     fun saveLanguage(language: String) {
         preference.edit().putString("language", language).apply()
@@ -32,9 +35,7 @@ class SharedProvider(private val context: Context) {
     fun getDayMode(): Boolean {
         return preference.getBoolean("day_night_mode", true)
     }
-    fun clearShared() {
-        preference.edit().remove(shared_token).apply()
-    }
+
 
     fun addFavorite():String{
         return preference.getString("favorite", "").toString()

@@ -7,10 +7,12 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.ozinshe.data.model.FavoriteModelItem
+import com.example.ozinshe.data.model.favoriteModel.FavoriteListResponse
+import com.example.ozinshe.data.model.favoriteModel.FavoriteListResponseItem
 import com.example.ozinshe.databinding.ItemFavoriteBinding
 
-class FavoriteAdapter :
-    ListAdapter<FavoriteModelItem, FavoriteAdapter.FavoriteViewHolder>(FavoriteDiffCallback()) {
+class FavoriteAdapter : ListAdapter<FavoriteListResponseItem, FavoriteAdapter.FavoriteViewHolder>(FavoriteDiffCallback()) {
+        private var list = mutableListOf<FavoriteListResponseItem>()
 
     private var onFavoriteClickListener: RcViewItemClickFavoriteCallback? = null
 
@@ -31,7 +33,7 @@ class FavoriteAdapter :
 
     inner class FavoriteViewHolder(private val binding: ItemFavoriteBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(movie: FavoriteModelItem) {
+        fun bind(movie: FavoriteListResponseItem) {
             Glide.with(binding.root.context)
                 .load(movie.poster.link)
                 .into(binding.FavoriteItem)
@@ -44,17 +46,21 @@ class FavoriteAdapter :
         }
     }
 
-    class FavoriteDiffCallback : DiffUtil.ItemCallback<FavoriteModelItem>() {
+    fun submitList(list: FavoriteListResponse) {
+        this.list.clear()
+        this.list.addAll(list.toList())
+    }
+    class FavoriteDiffCallback : DiffUtil.ItemCallback<FavoriteListResponseItem>() {
         override fun areItemsTheSame(
-            oldItem: FavoriteModelItem,
-            newItem: FavoriteModelItem
+            oldItem: FavoriteListResponseItem,
+            newItem: FavoriteListResponseItem
         ): Boolean {
             return oldItem.id == newItem.id
         }
 
         override fun areContentsTheSame(
-            oldItem: FavoriteModelItem,
-            newItem: FavoriteModelItem
+            oldItem: FavoriteListResponseItem,
+            newItem: FavoriteListResponseItem
         ): Boolean {
             return oldItem == newItem
         }

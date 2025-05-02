@@ -1,5 +1,6 @@
 package com.example.ozinshe.presentation.favorite
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -9,6 +10,7 @@ import com.example.ozinshe.data.model.FavoriteModelItem
 import com.example.ozinshe.data.model.FavoriteResponse
 import com.example.ozinshe.data.model.MovieIdModel
 import com.example.ozinshe.data.model.ServiceBuilder
+import com.example.ozinshe.data.model.favoriteModel.FavoriteListResponse
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -22,44 +24,26 @@ class FavoriteViewModel : ViewModel() {
     private val _deleteFavoriteResponse = MutableLiveData<FavoriteResponse>()
     val deleteFavoriteResponse: LiveData<FavoriteResponse> = _deleteFavoriteResponse
 
-    private val _favoriteList = MutableLiveData<List<FavoriteModelItem>>()
-    val favoriteList: LiveData<List<FavoriteModelItem>> = _favoriteList
+    private val _favoriteList = MutableLiveData<FavoriteListResponse>()
+    val favoriteList: LiveData<FavoriteListResponse> = _favoriteList
 
     private val _errorResponse = MutableLiveData<String>()
     val errorResponse: LiveData<String> = _errorResponse
 
     fun getFavoriteList(token: String) {
         viewModelScope.launch(Dispatchers.IO) {
-            try {
-                val result = service.getFavoriteList("Bearer $token")
-                _favoriteList.postValue(result)
-            } catch (e: Exception) {
-                _errorResponse.postValue("Ошибка загрузки избранного: ${e.localizedMessage}")
-            }
+            runCatching {
+                service.getFavoriteList("Bearer $token")
+            }.onSuccess {
+                    Log.d("AAA", "getFavoriteList: $it")
+                    _favoriteList.postValue(it)
+                }
+                .onFailure {
+                    Log.d("AAA", "getFavoriteList error: ${it.message}")
+                    _errorResponse.postValue(it.message)
+                }
         }
     }
 
-    fun addFavorite(token: String, movieIdModel: MovieIdModel) {
-        viewModelScope.launch(Dispatchers.IO) {
-            try {
-                val result = service.addFavorite("Bearer $token", movieIdModel)
-                _addFavoriteResponse.postValue(result)
-                getFavoriteList(token) // обновляем список после добавления
-            } catch (e: Exception) {
-                _errorResponse.postValue("Ошибка добавления в избранное: ${e.localizedMessage}")
-            }
-        }
-    }
 
-    fun deleteFavorite(token: String, movieIdModel: MovieIdModel) {
-        viewModelScope.launch(Dispatchers.IO) {
-            try {
-                val result = service.deleteFavorite("Bearer $token", movieIdModel)
-                _deleteFavoriteResponse.postValue(result)
-                getFavoriteList(token) // обновляем список после удаления
-            } catch (e: Exception) {
-                _errorResponse.postValue("Ошибка удаления из избранного: ${e.localizedMessage}")
-            }
-        }
-    }
 }
