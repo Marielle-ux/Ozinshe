@@ -38,5 +38,7 @@
         <item name="FavoriteToolbarText">@color/grey_900</item>
         <item name="FavoriteFragmentRc">@color/white</item>
 
+        <!--Profile Fragment-->
+        <item name="ProfileLayout">@color/white</item>
     </style>
 </resources>

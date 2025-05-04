@@ -33,4 +33,6 @@
     <color name="blue">#2370FF</color>
     <color name="red">#FF0000</color>
     <color name="ful_transparent">#00000000</color>
+
+    <color name="status_bar_color">#F2F2F2</color>
 </resources>

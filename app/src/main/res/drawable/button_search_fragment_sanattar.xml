@@ -1,14 +1,7 @@
-<vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:width="95dp"
-    android:height="34dp"
-    android:viewportWidth="95"
-    android:viewportHeight="34">
-  <path
-      android:pathData="M8,0.5L87,0.5A7.5,7.5 0,0 1,94.5 8L94.5,26A7.5,7.5 0,0 1,87 33.5L8,33.5A7.5,7.5 0,0 1,0.5 26L0.5,8A7.5,7.5 0,0 1,8 0.5z"
-      android:fillColor="?attr/SearchButtonColor"/>
-  <path
-      android:strokeWidth="1"
-      android:pathData="M8,0.5L87,0.5A7.5,7.5 0,0 1,94.5 8L94.5,26A7.5,7.5 0,0 1,87 33.5L8,33.5A7.5,7.5 0,0 1,0.5 26L0.5,8A7.5,7.5 0,0 1,8 0.5z"
-      android:fillColor="#00000000"
-      android:strokeColor="?attr/SearchButtonColor"/>
-</vector>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+  <solid android:color="?attr/SearchButtonColor" />
+  <corners android:radius="20px" />
+  <stroke
+      android:width="1dp"
+      android:color="?attr/SearchButtonColor" />
+</shape>

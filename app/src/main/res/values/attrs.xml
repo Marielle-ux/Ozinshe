@@ -22,6 +22,8 @@
 
     <!--Login Fragment-->
     <attr name="CustomLoginTextColor" format="reference"/>
+    <!--Profile Fragment-->
+    <attr name="ProfileLayout" format="reference"/>
 
     <!--View-->
     <attr name="ViewColor" format="reference" />
