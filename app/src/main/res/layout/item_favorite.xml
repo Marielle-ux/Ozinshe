@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="12dp">
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/FavoriteCardImg"
+        android:layout_width="72dp"
+        android:layout_height="104dp"
+        android:elevation="0dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <ImageView
+            android:id="@+id/FavoriteItem"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/sample_image" />
+    </androidx.cardview.widget.CardView>
+
+    <ImageButton
+        android:id="@+id/btnFavoriteWatch"
+        android:layout_width="80dp"
+        android:layout_height="27dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/background_button_12dp_circle"
+        android:backgroundTint="?attr/customButtonColor"
+        android:elevation="0dp"
+        android:src="@drawable/ic_button_watch"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/FavoriteYearInfo"
+        app:layout_constraintTop_toTopOf="@+id/FavoriteYearInfo" />
+
+    <TextView
+        android:id="@+id/FavoriteItemTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="17dp"
+        android:fontFamily="@font/sf_bold"
+        android:text="Қызғалдақтар мекені"
+        android:textColor="?attr/textAppearanceBody1"
+        android:textFontWeight="600"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@id/FavoriteCardImg"
+        app:layout_constraintTop_toTopOf="@id/FavoriteCardImg" />
+
+    <TextView
+        android:id="@+id/FavoriteYearInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/sf_medium"
+        android:textColor="@color/grey_400"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/FavoriteItemTitle"
+        app:layout_constraintTop_toBottomOf="@+id/FavoriteItemTitle"
+        tools:text="2020" />
+
+    <TextView
+        android:id="@+id/FavoriteFirstDotInText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/sf_medium"
+        android:text="•"
+        android:textColor="@color/grey_400"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@id/FavoriteYearInfo"
+        app:layout_constraintStart_toEndOf="@+id/FavoriteYearInfo" />
+
+    <TextView
+        android:id="@+id/FavoriteGenreName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:ellipsize="end"
+        android:fontFamily="@font/sf_medium"
+        android:lines="1"
+        android:textColor="@color/grey_400"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/FavoriteYearInfo"
+        app:layout_constraintStart_toEndOf="@+id/FavoriteFirstDotInText"
+        tools:text="Телехикая" />
+
+    <TextView
+        android:id="@+id/FavoriteSecondDotInText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/sf_medium"
+        android:text="•"
+        android:textColor="@color/grey_400"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@id/FavoriteGenreName"
+        app:layout_constraintStart_toEndOf="@+id/FavoriteGenreName" />
+
+    <TextView
+        android:id="@+id/tvGenreInRussianFavorite"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:ellipsize="end"
+        android:fontFamily="@font/sf_medium"
+        android:lines="1"
+        android:textColor="@color/grey_400"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/FavoriteSecondDotInText"
+        app:layout_constraintStart_toEndOf="@+id/FavoriteSecondDotInText"
+        tools:text="Мультфильм" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

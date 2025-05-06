@@ -30,7 +30,8 @@ class HomeFragment : Fragment() {
     override fun onStart() {
         super.onStart()
         provideNavigationHost()?.apply {
-            setNavigationVisibility(false)
+            setNavigationVisibility(true)
+            setStateBarVisibility(true)
         }
     }
 
@@ -38,6 +39,7 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         provideNavigationHost()?.apply {
             setNavigationVisibility(false)
+            setStateBarVisibility(true)
         }
         val adapterMainMovie = MainMovieAdapter()
         binding.rcMainMovies.adapter = adapterMainMovie

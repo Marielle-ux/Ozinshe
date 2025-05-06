@@ -8,7 +8,7 @@ import com.bumptech.glide.Glide
 import com.example.ozinshe.data.model.MainMovieResponseItem
 import com.example.ozinshe.databinding.ItemMainMoviesBinding
 
-class MainMovieAdapter : RecyclerView.Adapter<MainMovieAdapter.MainMoveHolder>() {
+class MainMovieAdapter : RecyclerView.Adapter<MainMovieAdapter.MainMovieHolder>() {
 
     private val diffCallback = object : DiffUtil.ItemCallback<MainMovieResponseItem>() {
         override fun areItemsTheSame(
@@ -37,7 +37,7 @@ class MainMovieAdapter : RecyclerView.Adapter<MainMovieAdapter.MainMoveHolder>()
         this.listenerClickAtItem = listener
     }
 
-    inner class MainMoveHolder(private var binding: ItemMainMoviesBinding) :
+    inner class MainMovieHolder(private var binding: ItemMainMoviesBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bindItem(mainMovieItem: MainMovieResponseItem) {
             Glide.with(itemView.context)
@@ -53,8 +53,8 @@ class MainMovieAdapter : RecyclerView.Adapter<MainMovieAdapter.MainMoveHolder>()
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainMoveHolder {
-        return MainMoveHolder(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainMovieHolder {
+        return MainMovieHolder(
             ItemMainMoviesBinding.inflate(
                 android.view.LayoutInflater.from(parent.context), parent, false
             )
@@ -65,7 +65,7 @@ class MainMovieAdapter : RecyclerView.Adapter<MainMovieAdapter.MainMoveHolder>()
         return differ.currentList.size
     }
 
-    override fun onBindViewHolder(holder: MainMoveHolder, position: Int) {
+    override fun onBindViewHolder(holder: MainMovieHolder, position: Int) {
         holder.bindItem(differ.currentList[position])
     }
 }

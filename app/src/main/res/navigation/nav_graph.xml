@@ -70,24 +70,39 @@
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
-        android:name="com.example.ozinshe.presentation.SearchFragment"
-        android:label="fragment_search"
-        tools:layout="@layout/fragment_search" />
+        android:name="com.example.ozinshe.presentation.search.SearchFragment">
+        <action
+            android:id="@+id/action_searchFragment_to_aboutFragment"
+            app:destination="@id/aboutFragment">
+            <argument
+                android:name="movieId"
+                app:argType="integer"
+                android:defaultValue="0"/>
+        </action>
+    </fragment>
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.example.ozinshe.presentation.ProfileFragment"
+        android:name="com.example.ozinshe.presentation.profile.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/favoriteFragment"
-        android:name="com.example.ozinshe.presentation.FavoriteFragment"
-        android:label="fragment_favorite"
-        tools:layout="@layout/fragment_favorite" />
+        android:name="com.example.ozinshe.presentation.favorite.FavoriteFragment"
+        android:label="Избранное"
+        tools:layout="@layout/fragment_favorite">
+            <argument
+                android:name="movieId"
+                app:argType="integer" />
+    </fragment>
+
     <fragment
         android:id="@+id/aboutFragment"
         android:name="com.example.ozinshe.presentation.about.AboutFragment"
         android:label="fragment_about"
         tools:layout="@layout/fragment_about">
+        <action
+            android:id="@+id/action_global_aboutFragment"
+            app:destination="@id/aboutFragment"/>
         <argument
             android:name="movieId"
             app:argType="integer" />

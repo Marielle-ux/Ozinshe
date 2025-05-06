@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Ozinshe</string>
+    <string name="profile_language">Language</string>
+    <string name="profile_my_profile">My profile</string>
+    <string name="profile_personal_data">Personal Information</string>
+    <string name="home_fragment_all">All</string>
+    <string name="profile_change_password">Change password</string>
+    <string name="profile_policy">Policy and Rules</string>
+    <string name="profile_notifications">Notifications</string>
+    <string name="profile_light_dark_mode">Night mode</string>
+    <string name="profile_edit_personal_info">Edit</string>
+    <string name="profile_english">English</string>
+    <string name="profile_kazakh">Kazakh</string>
+    <string name="profile_russian">Russian</string>
+    <string name="profile_language_select">Language</string>
+    <string name="welcome_onboarding">Welcome to OZINŞE!</string>
+</resources>

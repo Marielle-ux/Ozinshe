@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="12dp">
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardImage"
+        android:layout_width="72dp"
+        android:layout_height="104dp"
+        app:cardCornerRadius="12dp"
+        android:elevation="0dp"
+        app:cardElevation="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+        <ImageView
+            android:id="@+id/itemImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/sample_image"/>
+    </androidx.cardview.widget.CardView>
+
+    <ImageButton
+        android:id="@+id/btnWatch"
+        android:layout_width="80dp"
+        android:layout_height="27dp"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="?attr/customButtonColor"
+        android:src="@drawable/ic_button_watch"
+        android:elevation="0dp"
+        android:background="@drawable/background_button_12dp_circle"
+        app:layout_constraintTop_toTopOf="@+id/YearInfo"
+        app:layout_constraintStart_toStartOf="@+id/YearInfo"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <TextView
+        android:id="@+id/itemTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="17dp"
+        android:text="Қызғалдақтар мекені"
+        android:textSize="14sp"
+        android:fontFamily="@font/sf_bold"
+        android:textFontWeight="600"
+        android:textColor="?attr/textAppearanceBody1"
+        app:layout_constraintStart_toEndOf="@id/cardImage"
+        app:layout_constraintTop_toTopOf="@id/cardImage" />
+
+    <TextView
+        android:id="@+id/YearInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/sf_medium"
+        android:textColor="@color/grey_400"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/itemTitle"
+        app:layout_constraintTop_toBottomOf="@+id/itemTitle"
+        tools:text="2020" />
+    <TextView
+        android:id="@+id/dotsInText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/sf_medium"
+        android:text="•"
+        android:textColor="@color/grey_400"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@id/YearInfo"
+        app:layout_constraintStart_toEndOf="@+id/YearInfo" />
+
+    <TextView
+        android:id="@+id/tvTextGenreName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:ellipsize="end"
+        android:fontFamily="@font/sf_medium"
+        android:lines="1"
+        android:textColor="@color/grey_400"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/YearInfo"
+        app:layout_constraintStart_toEndOf="@+id/dotsInText"
+        tools:text="Телехикая" />
+
+    <TextView
+        android:id="@+id/SecondDotInText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/sf_medium"
+        android:text="•"
+        android:textColor="@color/grey_400"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@id/tvTextGenreName"
+        app:layout_constraintStart_toEndOf="@+id/tvTextGenreName" />
+
+    <TextView
+        android:id="@+id/tvGenreInRussian"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:ellipsize="end"
+        android:fontFamily="@font/sf_medium"
+        android:lines="1"
+        android:textColor="@color/grey_400"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/SecondDotInText"
+        app:layout_constraintStart_toEndOf="@+id/SecondDotInText"
+        tools:text="Мультфильм" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
