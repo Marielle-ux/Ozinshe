@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    android:id="@+id/FragmentAbout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="?attr/colorPrimary"
+    android:layout_height="match_parent"
+    tools:context=".presentation.about.AboutFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/colorPrimary">
+
+        <ImageView
+            android:id="@+id/imgPoster"
+            android:layout_width="0dp"
+            android:layout_height="400dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_logo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:background="@drawable/ic_shadow_about"
+            android:backgroundTint="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="60dp"
+            android:background="@drawable/ic_back_about"
+            android:backgroundTint="@color/white"
+            android:padding="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/btnPlay"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginTop="222dp"
+            android:background="@drawable/ic_play"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/btnFavorite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="53dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="@id/btnPlay"
+            app:layout_constraintEnd_toStartOf="@id/btnPlay"
+            app:layout_constraintTop_toTopOf="@id/btnPlay">
+
+            <ImageView
+                android:id="@+id/btnIconFavorite"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:background="@drawable/ic_favorite_unselected"
+                android:backgroundTint="@color/white" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/sf_regular"
+                android:text="Тізімге қосу"
+                android:textColor="@color/white"
+                android:textFontWeight="600"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btnShare"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="65dp"
+            android:layout_marginEnd="53dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="@+id/btnPlay"
+            app:layout_constraintStart_toEndOf="@id/btnPlay"
+            app:layout_constraintTop_toTopOf="@id/btnPlay">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:backgroundTint="@color/white"
+                android:src="@drawable/ic_share" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/sf_regular"
+                android:text="Бөлісу"
+                android:textColor="@color/white"
+                android:textFontWeight="600"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/AboutPageInfo"
+            android:layout_width="match_parent"
+            android:layout_height="900dp"
+            android:layout_marginTop="310dp"
+            android:background="@drawable/about_film_style_top_radius_32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/textTvTittleMovie"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/sf_bold"
+                android:text="Қызғалдақтар мекені "
+                android:textColor="@color/grey_900"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/textFieldInfo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/textTvTittleMovie"
+                app:layout_constraintStart_toStartOf="@id/textTvTittleMovie"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="24dp">
+
+                <TextView
+                    android:id="@+id/textTvAdditionalInfoYear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/sf_medium"
+                    android:textColor="@color/grey_400"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="@+id/textTvTittleMovie"
+                    app:layout_constraintTop_toBottomOf="@+id/textTvTittleMovie"
+                    tools:text="2020" />
+
+                <TextView
+                    android:id="@+id/dotsInBetweenText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/sf_medium"
+                    android:text="•"
+                    android:textColor="@color/grey_400"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/textTvGenreInfo"
+                    app:layout_constraintStart_toEndOf="@+id/textTvAdditionalInfoYear" />
+
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="24dp"
+                    android:background="@color/grey_100"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/textTvAdditionalInfoYear" />
+
+                <TextView
+                    android:id="@+id/textTvGenreInfo"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/sf_medium"
+                    android:lines="1"
+                    android:textColor="@color/grey_400"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/textTvAdditionalInfoYear"
+                    app:layout_constraintStart_toEndOf="@+id/dotsInBetweenText"
+                    tools:text="Телехикая" />
+
+                <TextView
+                    android:id="@+id/dotsInBetweenTextOne"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:fontFamily="@font/sf_medium"
+                    android:text="•"
+                    android:textColor="@color/grey_400"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/textTvGenreInfo"
+                    app:layout_constraintStart_toEndOf="@+id/textTvGenreInfo" />
+
+                <TextView
+                    android:id="@+id/textTvEpisodeAndTime"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/sf_medium"
+                    android:lines="1"
+                    android:textColor="@color/grey_400"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/textTvAdditionalInfoYear"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/dotsInBetweenTextOne"
+                    tools:text="10 серия, 7 мин, 10 серия, 7 мин,10 серия, 7 мин,10 серия, 7 мин," />
+
+
+            </LinearLayout>
+
+            <com.bosphere.fadingedgelayout.FadingEdgeLayout
+                android:id="@+id/fadingEdgeLayoutDescription"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                app:fel_edge="bottom"
+                app:fel_size_bottom="120dp"
+                android:layout_marginHorizontal="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textFieldInfo">
+
+                <TextView
+                    android:id="@+id/textTvDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/sf_medium"
+                    android:maxLines="7"
+                    android:text="  "
+                    android:textColor="@color/grey_400" />
+            </com.bosphere.fadingedgelayout.FadingEdgeLayout>
+
+            <TextView
+                android:id="@+id/btnMoreDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/sf_regular"
+                android:text="Толығырақ"
+                android:textColor="@color/primary_300"
+                android:textFontWeight="600"
+                app:layout_constraintStart_toStartOf="@id/fadingEdgeLayoutDescription"
+                app:layout_constraintTop_toBottomOf="@id/fadingEdgeLayoutDescription" />
+
+            <TextView
+                android:id="@+id/textDirector"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="55dp"
+                android:fontFamily="@font/sf_regular"
+                android:text="Режиссер:"
+                android:textColor="@color/grey_600"
+                android:textFontWeight="600"
+                app:layout_constraintStart_toStartOf="@id/btnMoreDescription"
+                app:layout_constraintTop_toBottomOf="@+id/fadingEdgeLayoutDescription" />
+
+            <TextView
+                android:id="@+id/textProducer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/sf_regular"
+                android:text="Продюсер:"
+                android:textColor="@color/grey_600"
+                android:textFontWeight="600"
+                app:layout_constraintStart_toStartOf="@id/textDirector"
+                app:layout_constraintTop_toBottomOf="@id/textDirector" />
+
+            <TextView
+                android:id="@+id/textTvDirector"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="19dp"
+                android:fontFamily="@font/sf_regular"
+                android:text=""
+                android:textColor="@color/grey_400"
+                app:layout_constraintStart_toEndOf="@id/textDirector"
+                app:layout_constraintTop_toTopOf="@id/textDirector" />
+
+            <TextView
+                android:id="@+id/textTvProducer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/sf_regular"
+                android:text=""
+                android:textColor="@color/grey_400"
+                app:layout_constraintStart_toStartOf="@id/textTvDirector"
+                app:layout_constraintTop_toTopOf="@id/textProducer" />
+
+            <View
+                android:id="@+id/view2"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textProducer" />
+
+            <TextView
+                android:id="@+id/textBolimder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/sf_regular"
+                android:text="Бөлімдер"
+                android:textColor="@color/grey_900"
+                android:textFontWeight="600"
+                android:textSize="16dp"
+                app:layout_constraintStart_toStartOf="@id/view2"
+                app:layout_constraintTop_toBottomOf="@id/view2" />
+
+
+            <TextView
+                android:id="@+id/textTvBolimder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="19dp"
+                android:layout_marginEnd="14dp"
+                android:fontFamily="@font/sf_regular"
+                android:text="10 серия"
+                android:textColor="@color/grey_400"
+                app:layout_constraintEnd_toStartOf="@id/btnNextAllMovie"
+                app:layout_constraintTop_toTopOf="@id/textBolimder" />
+
+            <ImageButton
+                android:id="@+id/btnNextAllMovie"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:backgroundTint="@color/ful_transparent"
+                android:src="@drawable/ic_button_next"
+                app:layout_constraintBottom_toBottomOf="@+id/textBolimder"
+                app:layout_constraintEnd_toEndOf="@id/view2"
+                app:layout_constraintTop_toTopOf="@+id/textBolimder" />
+
+            <TextView
+                android:id="@+id/textScreenshots"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="68dp"
+                android:fontFamily="@font/sf_regular"
+                android:text="Скриншоттар"
+                android:textColor="@color/grey_900"
+                android:textFontWeight="600"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@id/view2"
+                app:layout_constraintTop_toBottomOf="@+id/view2" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcViewScreenShots"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/view2"
+                app:layout_constraintTop_toBottomOf="@id/textScreenshots" />
+
+            <TextView
+                android:id="@+id/textSimilar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:fontFamily="@font/sf_regular"
+                android:text="Ұқсас телехикаялар"
+                android:textColor="@color/grey_900"
+                android:textFontWeight="600"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@id/view2"
+                app:layout_constraintTop_toBottomOf="@id/rcViewScreenShots" />
+
+            <TextView
+                android:id="@+id/btnSimilarMovieMore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/sf_semi_bold"
+                android:text="Барлығы"
+                android:textColor="@color/primary_300"
+                app:layout_constraintEnd_toEndOf="@id/view2"
+                app:layout_constraintTop_toTopOf="@id/textSimilar" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcViewSimilar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/view2"
+                app:layout_constraintTop_toBottomOf="@id/textSimilar" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

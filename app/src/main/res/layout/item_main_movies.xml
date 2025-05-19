@@ -26,7 +26,7 @@
         android:fontFamily="@font/sf_bold"
         android:lines="1"
         android:text="yeahblahblah"
-        android:textColor="@color/grey_900"
+        android:textColor="?attr/textAppearanceBody1"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="@id/imgMainMovie"
         app:layout_constraintTop_toBottomOf="@id/imgMainMovie" />

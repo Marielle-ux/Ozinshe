@@ -1,5 +1,18 @@
 <resources>
     <string name="app_name">Ozinshe</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="profile_language">Тіл</string>
+    <string name="profile_my_profile">Менің профилім</string>
+    <string name="profile_personal_data">Жеке деректер</string>
+    <string name="home_fragment_all">Барлығы</string>
+    <string name="profile_change_password">Құпия сөзді өзгерту</string>
+    <string name="profile_policy">Ережелер мен шарттар</string>
+    <string name="profile_notifications">Хабарландырулар</string>
+    <string name="profile_light_dark_mode">Қараңғы режим</string>
+    <string name="profile_edit_personal_info">Өңдеу</string>
+    <string name="profile_english">English</string>
+    <string name="profile_kazakh">Қазақша</string>
+    <string name="profile_russian">Русский</string>
+    <string name="profile_language_select">Тіл</string>
+    <string name="welcome_onboarding">ÖZINŞE-ге қош келдің!</string>
+
 </resources>

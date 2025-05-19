@@ -1,7 +1,44 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Светлая тема  -->
-
     <style name="Theme.Ozinshe" parent="Theme.Material3.DayNight.NoActionBar">
-        <item name="strokeColor">@color/grey_200</item>
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorSwitchThumbNormal">@color/grey_200</item>
+        <item name="colorTertiary">@color/grey_800</item>
+        <item name="textAppearanceBody1">@color/grey_900</item>
+        <item name="customMainLogoColorPrimary">@color/white</item>
+        <item name="customMainLogoColorSecondary">@color/grey_900</item>
+        <item name="customMainLogoColorTertiary">@color/grey_200</item>
+        <item name="customTextOnBoardingColor">@color/grey_500</item>
+        <item name="customTextOnBoardingColorSecondary">@color/grey_900</item>
+        <item name="customTextOnBoardingColorTertiary">@color/grey_700</item>
+        <item name="customButtonColor">@color/primary_50</item>
+
+        <!--Search Fragment-->
+        <item name="SearchButtonColor">@color/white</item>
+        <item name="SearchButtonInside">@color/grey_700</item>
+        <item name="SearchFragmentLinerLayout">@color/white</item>
+        <item name="SearchFragmentRecommendations">@color/grey_700</item>
+        <item name="SearchTextColor">@color/grey_900</item>
+        <item name="SearchFragmentToolbarText">@color/grey_900</item>
+        <item name="SearchFragmentToolbar">@color/white</item>
+
+        <!--Sign Up Fragment-->
+        <item name="CustomSignUpTextColor">@color/grey_900</item>
+        <!--View-->
+        <item name="ViewColor">@color/white</item>
+        <item name="ProfileToolbarText">@color/grey_900</item>
+        <!--About Fragment-->
+        <item name="CustomAboutPage">@color/white</item>
+        <item name="CustomAboutPageText">@color/grey_900</item>
+        
+        <item name="SwitchThemeButton">@color/grey_200</item>
+
+        <item name="OnboardingFillColor">@color/white</item>
+        <!--Favorite Fragment-->
+        <item name="FavoriteToolbarText">@color/grey_900</item>
+        <item name="FavoriteFragmentRc">@color/white</item>
+
+        <!--Profile Fragment-->
+        <item name="ProfileLayout">@color/white</item>
     </style>
 </resources>

@@ -2,7 +2,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="?attr/ProfileLayout">
 
     <ImageButton
         android:id="@+id/btnBackSignUpFragment1"
@@ -23,7 +24,7 @@
         android:layout_marginTop="24dp"
         android:fontFamily="@font/sf_bold"
         android:text="Сәлем"
-        android:textColor="@color/grey_900"
+        android:textColor="?attr/CustomSignUpTextColor"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="@id/btnBackSignUpFragment1"
         app:layout_constraintTop_toBottomOf="@id/btnBackSignUpFragment1" />
@@ -35,7 +36,7 @@
         android:layout_marginTop="4dp"
         android:fontFamily="@font/sf_regular"
         android:text="Аккаунтқа тіркеліңіз"
-        android:textColor="@color/grey_500"
+        android:textColor="?attr/customTextOnBoardingColor"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@id/btnBackSignUpFragment1"
         app:layout_constraintTop_toBottomOf="@id/textSalem1" />
@@ -47,7 +48,7 @@
         android:layout_marginTop="24dp"
         android:fontFamily="@font/sf_bold"
         android:text="Email"
-        android:textColor="@color/grey_900"
+        android:textColor="?attr/CustomSignUpTextColor"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="@id/btnBackSignUpFragment1"
         app:layout_constraintTop_toBottomOf="@id/textAccSignUp" />
@@ -96,7 +97,7 @@
         android:layout_marginTop="15dp"
         android:fontFamily="@font/sf_bold"
         android:text="Құпия сөз"
-        android:textColor="@color/grey_900"
+        android:textColor="?attr/customTextOnBoardingColorSecondary"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="@+id/linearLayout"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
@@ -137,7 +138,7 @@
         android:layout_marginTop="15dp"
         android:fontFamily="@font/sf_bold"
         android:text="Құпия сөзді қайталаңыз"
-        android:textColor="@color/grey_900"
+        android:textColor="?attr/CustomSignUpTextColor"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="@+id/linearLayout"
         app:layout_constraintTop_toBottomOf="@+id/editTextPasswordSignUp" />
